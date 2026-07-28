@@ -112,7 +112,7 @@
         <h1 class="text-3xl md:text-5xl font-extrabold text-pink-500 mb-2 drop-shadow-sm tracking-wide">Gemini Storybook</h1>
         <p class="text-pink-400 text-base md:text-lg font-bold mb-6">🎀 奇幻英語與文法學習中心 🎀</p>
 
-        <!-- 🌟 每日大冒險關卡進度條卡片 (NEW) -->
+        <!-- 🌟 每日大冒險關卡進度條卡片 -->
         <div id="adventure-card" class="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 p-5 md:p-6 rounded-3xl shadow-cute max-w-2xl mx-auto mb-6 text-white relative overflow-hidden text-left border-4 border-white/60">
             <div class="flex flex-wrap justify-between items-center mb-3 gap-2">
                 <div class="flex items-center gap-2">
@@ -195,7 +195,7 @@
                 <button class="mt-4 bg-emerald-400 text-white font-bold px-5 py-1.5 rounded-full text-xs shadow-sm group-hover:bg-emerald-500">開始玩 ➔</button>
             </div>
 
-            <!-- 遊戲卡 4：小一基礎文法 (新新增) -->
+            <!-- 遊戲卡 4：小一基礎文法 -->
             <div class="bg-gradient-to-b from-purple-50 to-white p-5 rounded-3xl shadow-cute border-4 border-purple-200 cursor-pointer hover:scale-105 transition duration-300 text-center flex flex-col items-center justify-between group relative overflow-hidden" onclick="initGame('grammar')">
                 <span class="absolute top-2 right-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">新登場</span>
                 <div class="text-5xl mb-2 group-hover:bounce transition transform">📚</div>
@@ -254,9 +254,8 @@
             <div id="listening-options" class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"></div>
         </div>
 
-        <!-- 小一基礎文法介面 (新新增) -->
+        <!-- 小一基礎文法介面 -->
         <div id="grammar-board" class="bg-white/95 p-6 md:p-8 rounded-3xl shadow-cute border-4 border-purple-200 max-w-2xl mx-auto hidden">
-            <!-- 頂部文法類別標籤與語音導讀按鈕 (答對後才顯示) -->
             <div class="flex flex-wrap justify-between items-center mb-6 gap-2 border-b border-purple-100 pb-4">
                 <span id="grammar-topic-badge" class="bg-purple-100 text-purple-700 font-extrabold px-4 py-1.5 rounded-full text-xs md:text-sm">
                     單元: 動詞 +s 練習
@@ -266,20 +265,12 @@
                 </button>
             </div>
 
-            <!-- 中文語意提示 -->
             <div id="grammar-zh-hint" class="text-lg md:text-xl font-bold text-gray-500 mb-4 bg-purple-50/60 p-3 rounded-2xl inline-block"></div>
 
-            <!-- 英文填空題目句子 -->
-            <div id="grammar-sentence-display" class="text-2xl md:text-3xl font-extrabold text-purple-800 mb-8 p-4 bg-purple-50 rounded-2xl border-2 border-purple-100 leading-relaxed">
-                <!-- 動態注入例如: He _____ (like / likes) apples. -->
-            </div>
+            <div id="grammar-sentence-display" class="text-2xl md:text-3xl font-extrabold text-purple-800 mb-8 p-4 bg-purple-50 rounded-2xl border-2 border-purple-100 leading-relaxed"></div>
 
-            <!-- 選擇題選項區域 -->
-            <div id="grammar-options-container" class="grid grid-cols-2 gap-4 mb-8">
-                <!-- 動態生成選擇題按鈕 -->
-            </div>
+            <div id="grammar-options-container" class="grid grid-cols-2 gap-4 mb-8"></div>
 
-            <!-- 文法說明提示區 (可隱藏/顯示) -->
             <div id="grammar-tip-box" class="hidden bg-amber-50 border-2 border-amber-200 p-4 rounded-2xl text-left text-xs md:text-sm font-bold text-amber-800 mb-6 flex items-start gap-2">
                 <span class="text-xl">💡</span>
                 <div id="grammar-tip-text"></div>
@@ -302,7 +293,7 @@
         </div>
     </div>
 
-    <!-- 錯題本彈出視窗 (魔法書 Modal) -->
+    <!-- 錯題本彈出視窗 -->
     <div id="wrong-words-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
         <div class="bg-white p-6 rounded-3xl shadow-2xl max-w-md w-full border-4 border-rose-200 flex flex-col max-h-[85vh]">
             <h2 class="text-2xl font-extrabold text-rose-500 mb-1 flex items-center gap-2 justify-center">📖 我的錯題魔法書 📖</h2>
@@ -317,11 +308,10 @@
         </div>
     </div>
 
-    <!-- 🌟 全關卡通關特別慶祝視窗 (NEW) -->
+    <!-- 全關卡通關慶祝視窗 -->
     <div id="completion-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-50 p-4">
         <div class="bg-gradient-to-b from-amber-50 via-white to-pink-50 p-6 md:p-8 rounded-3xl text-center shadow-2xl transform transition-all scale-100 max-w-md w-full border-4 border-amber-300 relative">
             <div class="w-32 h-32 mx-auto mb-3 relative">
-                <!-- SVG Golden Trophy -->
                 <svg class="w-full h-full animate-bounce" viewBox="0 0 100 100" fill="none">
                     <path d="M25 25 C25 10, 75 10, 75 25 C75 55, 60 65, 50 65 C40 65, 25 55, 25 25 Z" fill="#FBBF24" stroke="#D97706" stroke-width="3"/>
                     <path d="M25 25 C10 25, 10 45, 25 45" stroke="#F59E0B" stroke-width="4" fill="none"/>
@@ -395,9 +385,8 @@
             { en: "read", zh: "閱讀", category: "actions" }
         ];
 
-        /* 小學一年級文法選擇題題庫 (動詞+s/無-s, am/is/are, do/does) */
+        /* 小學一年級文法選擇題題庫 */
         const GRAMMAR_QUESTIONS = [
-            // 單元 1: 動詞 + s / 不加 s (Verb + s)
             {
                 id: "g1",
                 topicTitle: "動詞 +s 練習 (Verb + s)",
@@ -448,8 +437,6 @@
                 answer: "catches",
                 tip: "主詞 The cat 是一隻單數動物，動詞要加上 -es 喔！"
             },
-
-            // 單元 2: am / is / are Be動詞
             {
                 id: "g6",
                 topicTitle: "Be動詞 練習 (am / is / are)",
@@ -490,8 +477,6 @@
                 answer: "is",
                 tip: "主詞是 It (事物/小動物)，Be動詞用 is。"
             },
-
-            // 單元 3: do / does 助動詞
             {
                 id: "g10",
                 topicTitle: "助動詞 練習 (do / does)",
@@ -535,13 +520,12 @@
         ];
 
         let rawData = [...DEFAULT_WORDS];
-        let currentGameMode = ''; // 'matching', 'spelling', 'listening', 'grammar'
+        let currentGameMode = '';
         let timer = 0, interval = null;
         let correctCount = 0, wrongCount = 0;
         let wrongWordsSet = new Set();
         let wrongPracticeActive = false;
 
-        /* 🌟 冒險進度條目標與數據 (NEW) */
         const GOALS = {
             matching: 20,
             spelling: 8,
@@ -575,17 +559,17 @@
 
                 if (type === 'correct') {
                     osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(523.25, now); // C5
-                    osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.1); // E5
-                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.2); // G5
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(659.25, now + 0.1);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.2);
                     gain.gain.setValueAtTime(0.3, now);
                     gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
                     osc.start(now);
                     osc.stop(now + 0.35);
                 } else if (type === 'wrong') {
                     osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(220, now); // A3
-                    osc.frequency.setValueAtTime(174.61, now + 0.12); // F3
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.setValueAtTime(174.61, now + 0.12);
                     gain.gain.setValueAtTime(0.25, now);
                     gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
                     osc.start(now);
@@ -598,12 +582,10 @@
                     osc.start(now);
                     osc.stop(now + 0.05);
                 }
-            } catch (e) {
-                // Safely ignore audio errors if Web Audio API is blocked
-            }
+            } catch (e) {}
         }
 
-        /* ==================== 活潑女聲語音合成發音模組 (NEW) ==================== */
+        /* ==================== 活潑語音合成發音模組 ==================== */
         let availableVoices = [];
 
         function loadVoices() {
@@ -617,17 +599,16 @@
             loadVoices();
         }
 
-        function speak(text, lang = 'en-US', rate = 0.88) {
+        function speak(text, lang = 'en-US', rate = 0.85) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = lang;
-                utterance.pitch = 1.25; // 提高語調展現活潑童趣感女聲
+                utterance.pitch = 1.2;
                 utterance.rate = rate;
 
                 if (availableVoices.length === 0) availableVoices = window.speechSynthesis.getVoices();
                 
-                // 優先篩選親切/活潑女性語音
                 let selectedVoice = null;
                 if (lang.startsWith('en')) {
                     selectedVoice = availableVoices.find(v => v.lang.startsWith('en') && (
@@ -649,7 +630,12 @@
             }
         }
 
-        /* 🌟 更新進度條 UI (NEW) */
+        function playCurrentHintAudio() {
+            if (currentSpellWord) {
+                speak(currentSpellWord.zh, 'zh-TW');
+            }
+        }
+
         function updateProgressUI() {
             const m = Math.min(progress.matching, GOALS.matching);
             const s = Math.min(progress.spelling, GOALS.spelling);
@@ -662,7 +648,7 @@
             document.getElementById('prog-grammar').innerText = `${g} / ${GOALS.grammar} ${g >= GOALS.grammar ? '✅' : ''}`;
 
             const currentTotal = m + s + l + g;
-            const maxTotal = GOALS.matching + GOALS.spelling + GOALS.listening + GOALS.grammar; // 48
+            const maxTotal = GOALS.matching + GOALS.spelling + GOALS.listening + GOALS.grammar;
             const pct = Math.round((currentTotal / maxTotal) * 100);
 
             document.getElementById('overall-progress-text').innerText = `總進度: ${currentTotal} / ${maxTotal} 題 (${pct}%)`;
@@ -689,7 +675,6 @@
             document.getElementById('completion-modal').classList.add('hidden');
         }
 
-        /* 紀錄答對進度 */
         function recordCorrectProgress(mode) {
             if (progress[mode] !== undefined) {
                 progress[mode]++;
@@ -697,25 +682,6 @@
             }
         }
 
-        /* ==================== 語音合成發音模組 (Web Speech API) ==================== */
-        function speak(text, lang = 'en-US', rate = 0.85) {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = lang;
-                utterance.pitch = 1.1; // 輕快童音感
-                utterance.rate = rate; // 清楚慢速導讀
-                window.speechSynthesis.speak(utterance);
-            }
-        }
-
-        function playCurrentHintAudio() {
-            if (currentSpellWord) {
-                speak(currentSpellWord.zh, 'zh-TW');
-            }
-        }
-
-        // 載入 words.json
         async function loadWords() {
             try {
                 const res = await fetch('words.json');
@@ -738,7 +704,7 @@
 
         function getFilteredWords() {
             if (wrongPracticeActive && wrongWordsSet.size > 0) {
-                return Array.from(wrongWordsSet).filter(item => item.en); // 僅單字
+                return Array.from(wrongWordsSet).filter(item => item.en);
             }
             const cat = document.getElementById('category-select').value;
             if (cat === 'all') return rawData;
@@ -764,7 +730,6 @@
                 document.getElementById('timer').innerText = timer;
             }, 1000);
 
-            // Hide all sub boards
             document.getElementById('matching-controls').classList.add('hidden');
             document.getElementById('matching-board').classList.add('hidden');
             document.getElementById('spelling-board').classList.add('hidden');
@@ -804,36 +769,28 @@
             initGame(currentGameMode);
         }
 
-        /* ==================== SVG MASCOT & CARD GENERATOR ==================== */
         function getMascotSvg(mood) {
             if (mood === 'perfect' || mood === 'verygood' || mood === 'correct') {
                 return `
                 <div class="flex flex-col items-center my-2">
                     <svg class="w-40 h-40 mx-auto drop-shadow-md animate-bounce-subtle" viewBox="0 0 140 140" fill="none">
-                        <!-- 答對卡片背景 -->
                         <circle cx="70" cy="70" r="58" fill="#10B981" opacity="0.15"/>
                         <circle cx="70" cy="70" r="48" fill="#ECFDF5" stroke="#34D399" stroke-width="4"/>
-                        <!-- 吉祥物主角 -->
                         <circle cx="70" cy="65" r="32" fill="#FDA4AF"/>
                         <circle cx="70" cy="65" r="27" fill="#FFE4E6"/>
-                        <!-- 粉紅蝴蝶結 🎀 -->
                         <path d="M 52 38 C 42 30, 42 50, 56 44 Z" fill="#FB7185"/>
                         <path d="M 64 38 C 74 30, 74 50, 60 44 Z" fill="#FB7185"/>
                         <circle cx="58" cy="41" r="4" fill="#E11D48"/>
-                        <!-- 大眼睛與開心笑臉 -->
                         <circle cx="60" cy="60" r="4" fill="#334155"/>
                         <circle cx="80" cy="60" r="4" fill="#334155"/>
                         <circle cx="62" cy="58" r="1.5" fill="white"/>
                         <circle cx="82" cy="58" r="1.5" fill="white"/>
                         <path d="M 58 70 Q 70 82 82 70 Z" fill="#FB7185" stroke="#E11D48" stroke-width="2"/>
-                        <!-- 答對勾勾徽章 -->
                         <circle cx="104" cy="102" r="18" fill="#10B981" stroke="white" stroke-width="3"/>
                         <path d="M 96 102 L 102 108 L 113 96" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <!-- 星星裝飾 -->
                         <polygon points="35,30 38,36 44,38 38,40 35,46 32,40 26,38 32,36" fill="#FBBF24"/>
                         <polygon points="105,35 107,40 112,41 107,43 105,48 103,43 98,41 103,40" fill="#FBBF24"/>
                     </svg>
-                    <!-- 恭喜答對圖卡標題 -->
                     <div class="mt-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-2xl px-8 py-2.5 rounded-full shadow-lg tracking-wider border-2 border-emerald-200 animate-pulse">
                         🎉 恭喜答對！
                     </div>
@@ -843,25 +800,19 @@
                 return `
                 <div class="flex flex-col items-center my-2">
                     <svg class="w-40 h-40 mx-auto drop-shadow-md animate-bounce-subtle" viewBox="0 0 140 140" fill="none">
-                        <!-- 答錯加油卡片背景 -->
                         <circle cx="70" cy="70" r="58" fill="#F59E0B" opacity="0.15"/>
                         <circle cx="70" cy="70" r="48" fill="#FFFBEB" stroke="#FBBF24" stroke-width="4"/>
-                        <!-- 吉祥物主角 -->
                         <circle cx="70" cy="65" r="32" fill="#FDA4AF"/>
                         <circle cx="70" cy="65" r="27" fill="#FFE4E6"/>
-                        <!-- 粉紅蝴蝶結 🎀 -->
                         <path d="M 52 38 C 42 30, 42 50, 56 44 Z" fill="#FB7185"/>
                         <path d="M 64 38 C 74 30, 74 50, 60 44 Z" fill="#FB7185"/>
                         <circle cx="58" cy="41" r="4" fill="#E11D48"/>
-                        <!-- 眼神與鼓勵表情 -->
                         <circle cx="60" cy="60" r="4" fill="#334155"/>
                         <circle cx="80" cy="60" r="4" fill="#334155"/>
                         <path d="M 62 72 Q 70 65 78 72" stroke="#E11D48" stroke-width="3" stroke-linecap="round" fill="none"/>
-                        <!-- 加油手臂徽章 -->
                         <circle cx="104" cy="102" r="18" fill="#F59E0B" stroke="white" stroke-width="3"/>
                         <text x="104" y="108" font-size="20" text-anchor="middle">💪</text>
                     </svg>
-                    <!-- 繼續加油圖卡標題 -->
                     <div class="mt-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-black text-2xl px-8 py-2.5 rounded-full shadow-lg tracking-wider border-2 border-amber-200">
                         💪 繼續加油！
                     </div>
@@ -898,7 +849,7 @@
             document.getElementById('message-modal').classList.add('hidden');
         }
 
-        /* ==================== 4. 小一文法選擇題與導讀模組 ==================== */
+        /* ==================== 小一文法邏輯 ==================== */
         let currentGrammarIndex = 0;
         let currentGrammarQuestion = null;
 
@@ -932,10 +883,8 @@
             });
         }
 
-        /* 導讀功能：朗讀例句全文與說明 */
         function readGrammarSentenceAndHint() {
             if (currentGrammarQuestion) {
-                // 朗讀完整的英語標準句子
                 speak(currentGrammarQuestion.fullSentence, 'en-US', 0.8);
             }
         }
@@ -980,7 +929,7 @@
             renderGrammarQuestion();
         }
 
-        /* ==================== 1. 單詞消消樂邏輯 ==================== */
+        /* ==================== 單詞消消樂邏輯 ==================== */
         let matchSelectedTiles = [];
         let matchActiveCount = 0;
 
@@ -1047,7 +996,7 @@
                 t2.el.classList.add('matched');
                 
                 correctCount++;
-                recordCorrectProgress('matching'); // 紀錄進度
+                recordCorrectProgress('matching');
                 matchActiveCount -= 2;
                 updateScoreboard();
 
@@ -1060,7 +1009,7 @@
                 }
             } else {
                 playSound('wrong');
-                wrongWordsSet.add(t1.word.fullObj);
+                wrongWordsSet.add({ en: t1.word.fullObj.en, zh: t1.word.fullObj.zh });
                 
                 t1.el.classList.remove('selected');
                 t2.el.classList.remove('selected');
@@ -1071,7 +1020,7 @@
             matchSelectedTiles = [];
         }
 
-        /* ==================== 2. 單詞拼寫練習邏輯 ==================== */
+        /* ==================== 單詞拼寫練習邏輯 ==================== */
         let currentSpellWord = null;
         let originalLetters = [];
         let blankIndices = [];
@@ -1231,7 +1180,7 @@
             }
         }
 
-        /* ==================== 3. 聽音辨字大挑戰邏輯 ==================== */
+        /* ==================== 聽音辨字大挑戰邏輯 ==================== */
         let currentListeningWord = null;
 
         function startListeningGame() {
