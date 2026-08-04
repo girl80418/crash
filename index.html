@@ -163,13 +163,13 @@
         <div class="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-cute max-w-xl mx-auto mb-8 border-2 border-pink-100">
             <label class="block text-pink-600 font-bold mb-1.5 text-sm md:text-base">🎯 單字遊戲主題分類：</label>
             <select id="category-select" class="w-full bg-pink-50 border-2 border-pink-200 text-pink-700 text-sm md:text-base rounded-xl p-2.5 font-bold focus:outline-none focus:ring-2 focus:ring-pink-400">
-                <option value="all">🌟 全部主題 (隨機綜合)</option>
+                <option value="all">🌟 全部主題 (130+ 隨機綜合庫)</option>
+                <option value="phonics">🔤 自然發音特訓 (Phonics)</option>
+                <option value="school">🎒 學校與用品 (School & Supplies)</option>
+                <option value="colors">🎨 顏色與色彩 (Colors)</option>
+                <option value="nature">☀️ 大自然與環境 (Nature)</option>
                 <option value="animals">🐾 可愛動物 (Animals)</option>
-                <option value="food">🍎 美味食物 (Food & Fruit)</option>
-                <option value="colors">🎨 顏色與形狀 (Colors & Shapes)</option>
-                <option value="nature">☀️ 大自然與天氣 (Nature)</option>
-                <option value="school">🎒 學校與生活 (School & Life)</option>
-                <option value="actions">🏃 動作與詞彙 (Actions)</option>
+                <option value="food">🍎 美味食物與點心 (Food & Snacks)</option>
             </select>
         </div>
         
@@ -332,62 +332,226 @@
     </div>
 
     <script>
-        /* ==================== 預設備用內建單字與小一文法題庫 ==================== */
+        /* ==================== 升級與融入完整的單字庫 (130+ 題) ==================== */
         const DEFAULT_WORDS = [
-            // Animals
-            { en: "cat", zh: "貓咪", category: "animals" },
-            { en: "dog", zh: "小狗", category: "animals" },
-            { en: "rabbit", zh: "兔子", category: "animals" },
-            { en: "duck", zh: "鴨子", category: "animals" },
-            { en: "elephant", zh: "大象", category: "animals" },
-            { en: "monkey", zh: "猴子", category: "animals" },
-            { en: "tiger", zh: "老虎", category: "animals" },
-            { en: "lion", zh: "獅子", category: "animals" },
-            { en: "bear", zh: "熊", category: "animals" },
-            { en: "panda", zh: "貓熊", category: "animals" },
-            // Food
-            { en: "apple", zh: "蘋果", category: "food" },
-            { en: "banana", zh: "香蕉", category: "food" },
-            { en: "milk", zh: "牛奶", category: "food" },
-            { en: "bread", zh: "麵包", category: "food" },
-            { en: "cake", zh: "蛋糕", category: "food" },
-            { en: "orange", zh: "橘子", category: "food" },
-            { en: "egg", zh: "雞蛋", category: "food" },
-            { en: "rice", zh: "米飯", category: "food" },
-            // Colors & Shapes
+            // 學校與用品 (School & Supplies)
+            { en: "a pen", zh: "原子筆", category: "school" },
+            { en: "a pencil", zh: "鉛筆", category: "school" },
+            { en: "a ruler", zh: "尺", category: "school" },
+            { en: "a book", zh: "書本", category: "school" },
+            { en: "a desk", zh: "書桌", category: "school" },
+            { en: "a table", zh: "桌子", category: "school" },
+            { en: "a picture", zh: "圖片", category: "school" },
+            { en: "a chair", zh: "椅子", category: "school" },
+            { en: "a computer", zh: "電腦", category: "school" },
+            { en: "an eraser", zh: "橡皮擦", category: "school" },
+            { en: "a crayon", zh: "蠟筆", category: "school" },
+
+            // 顏色 (Colors)
             { en: "red", zh: "紅色", category: "colors" },
-            { en: "blue", zh: "藍色", category: "colors" },
+            { en: "orange", zh: "橘色", category: "colors" },
             { en: "yellow", zh: "黃色", category: "colors" },
             { en: "green", zh: "綠色", category: "colors" },
+            { en: "blue", zh: "藍色", category: "colors" },
+            { en: "purple", zh: "紫色", category: "colors" },
             { en: "pink", zh: "粉紅色", category: "colors" },
-            { en: "star", zh: "星星", category: "colors" },
-            { en: "circle", zh: "圓形", category: "colors" },
-            // Nature
-            { en: "sun", zh: "太陽", category: "nature" },
-            { en: "moon", zh: "月亮", category: "nature" },
-            { en: "rain", zh: "下雨", category: "nature" },
-            { en: "flower", zh: "花朵", category: "nature" },
-            { en: "tree", zh: "樹木", category: "nature" },
-            { en: "sky", zh: "天空", category: "nature" },
-            // School & Life
-            { en: "book", zh: "書本", category: "school" },
-            { en: "pen", zh: "鋼筆", category: "school" },
-            { en: "pencil", zh: "鉛筆", category: "school" },
-            { en: "teacher", zh: "老師", category: "school" },
-            { en: "student", zh: "學生", category: "school" },
-            { en: "desk", zh: "課桌", category: "school" },
-            // Actions
-            { en: "run", zh: "跑步", category: "actions" },
-            { en: "jump", zh: "跳躍", category: "actions" },
-            { en: "swim", zh: "游泳", category: "actions" },
-            { en: "sing", zh: "唱歌", category: "actions" },
-            { en: "dance", zh: "跳舞", category: "actions" },
-            { en: "read", zh: "閱讀", category: "actions" }
+            { en: "black", zh: "黑色", category: "colors" },
+            { en: "white", zh: "白色", category: "colors" },
+
+            // 大自然 (Nature)
+            { en: "the sky", zh: "天空", category: "nature" },
+            { en: "the sun", zh: "太陽", category: "nature" },
+            { en: "the moon", zh: "月亮", category: "nature" },
+            { en: "the ocean", zh: "海洋", category: "nature" },
+            { en: "a star/stars", zh: "星星", category: "nature" },
+            { en: "a tree/trees", zh: "樹木", category: "nature" },
+
+            // 動物 (Animals)
+            { en: "a frog/frogs", zh: "青蛙", category: "animals" },
+            { en: "a dog", zh: "狗", category: "animals" },
+            { en: "a cat", zh: "貓", category: "animals" },
+            { en: "a duck", zh: "鴨子", category: "animals" },
+            { en: "a rabbit", zh: "兔子", category: "animals" },
+
+            // 食物 (Food)
+            { en: "a banana", zh: "香蕉", category: "food" },
+            { en: "an apple", zh: "蘋果", category: "food" },
+            { en: "a cookie", zh: "餅乾", category: "food" },
+            { en: "an egg", zh: "蛋", category: "food" },
+            { en: "milk", zh: "牛奶", category: "food" },
+            { en: "rice", zh: "米飯", category: "food" },
+
+            // 自然發音 (Phonics - a_e)
+            { en: "cake", zh: "蛋糕", phonics: "a_e", category: "phonics" },
+            { en: "tape", zh: "膠帶", phonics: "a_e", category: "phonics" },
+            { en: "wave", zh: "海浪", phonics: "a_e", category: "phonics" },
+            { en: "cave", zh: "洞穴", phonics: "a_e", category: "phonics" },
+            { en: "game", zh: "遊戲", phonics: "a_e", category: "phonics" },
+            { en: "lake", zh: "湖泊", phonics: "a_e", category: "phonics" },
+            { en: "make", zh: "製作", phonics: "a_e", category: "phonics" },
+            { en: "name", zh: "名字", phonics: "a_e", category: "phonics" },
+            { en: "plate", zh: "盤子", phonics: "a_e", category: "phonics" },
+            { en: "gate", zh: "大門", phonics: "a_e", category: "phonics" },
+
+            // Phonics - ai
+            { en: "rain", zh: "下雨", phonics: "ai", category: "phonics" },
+            { en: "tail", zh: "尾巴", phonics: "ai", category: "phonics" },
+            { en: "wait", zh: "等待", phonics: "ai", category: "phonics" },
+            { en: "train", zh: "火車", phonics: "ai", category: "phonics" },
+            { en: "pain", zh: "疼痛", phonics: "ai", category: "phonics" },
+            { en: "mail", zh: "信件", phonics: "ai", category: "phonics" },
+            { en: "sail", zh: "航行", phonics: "ai", category: "phonics" },
+            { en: "nail", zh: "指甲", phonics: "ai", category: "phonics" },
+            { en: "brain", zh: "大腦", phonics: "ai", category: "phonics" },
+            { en: "chain", zh: "鎖鏈", phonics: "ai", category: "phonics" },
+
+            // Phonics - ay
+            { en: "day", zh: "白天", phonics: "ay", category: "phonics" },
+            { en: "play", zh: "玩耍", phonics: "ay", category: "phonics" },
+            { en: "say", zh: "說話", phonics: "ay", category: "phonics" },
+            { en: "way", zh: "道路", phonics: "ay", category: "phonics" },
+            { en: "may", zh: "可以", phonics: "ay", category: "phonics" },
+            { en: "bay", zh: "海灣", phonics: "ay", category: "phonics" },
+            { en: "pay", zh: "付款", phonics: "ay", category: "phonics" },
+            { en: "hay", zh: "乾草", phonics: "ay", category: "phonics" },
+            { en: "ray", zh: "光線", phonics: "ay", category: "phonics" },
+            { en: "clay", zh: "黏土", phonics: "ay", category: "phonics" },
+
+            // Phonics - ee
+            { en: "tree", zh: "樹木", phonics: "ee", category: "phonics" },
+            { en: "feet", zh: "雙腳", phonics: "ee", category: "phonics" },
+            { en: "bee", zh: "蜜蜂", phonics: "ee", category: "phonics" },
+            { en: "see", zh: "看見", phonics: "ee", category: "phonics" },
+            { en: "green", zh: "綠色", phonics: "ee", category: "phonics" },
+            { en: "queen", zh: "女王", phonics: "ee", category: "phonics" },
+            { en: "sweet", zh: "甜的", phonics: "ee", category: "phonics" },
+            { en: "keep", zh: "保持", phonics: "ee", category: "phonics" },
+            { en: "sleep", zh: "睡覺", phonics: "ee", category: "phonics" },
+            { en: "deep", zh: "深的", phonics: "ee", category: "phonics" },
+
+            // Phonics - ea
+            { en: "leaf", zh: "樹葉", phonics: "ea", category: "phonics" },
+            { en: "meat", zh: "肉類", phonics: "ea", category: "phonics" },
+            { en: "read", zh: "閱讀", phonics: "ea", category: "phonics" },
+            { en: "tea", zh: "茶", phonics: "ea", category: "phonics" },
+            { en: "sea", zh: "海洋", phonics: "ea", category: "phonics" },
+            { en: "eat", zh: "吃", phonics: "ea", category: "phonics" },
+            { en: "clean", zh: "乾淨的", phonics: "ea", category: "phonics" },
+            { en: "beach", zh: "海灘", phonics: "ea", category: "phonics" },
+            { en: "peach", zh: "水蜜桃", phonics: "ea", category: "phonics" },
+            { en: "team", zh: "團隊", phonics: "ea", category: "phonics" },
+
+            // Phonics - y
+            { en: "happy", zh: "快樂的", phonics: "y", category: "phonics" },
+            { en: "candy", zh: "糖果", phonics: "y", category: "phonics" },
+            { en: "baby", zh: "嬰兒", phonics: "y", category: "phonics" },
+            { en: "funny", zh: "有趣的", phonics: "y", category: "phonics" },
+            { en: "sunny", zh: "晴朗的", phonics: "y", category: "phonics" },
+            { en: "windy", zh: "颳風的", phonics: "y", category: "phonics" },
+            { en: "puppy", zh: "小狗", phonics: "y", category: "phonics" },
+            { en: "bunny", zh: "小兔子", phonics: "y", category: "phonics" },
+            { en: "story", zh: "故事", phonics: "y", category: "phonics" },
+            { en: "party", zh: "派對", phonics: "y", category: "phonics" },
+
+            // Phonics - i_e
+            { en: "bike", zh: "腳踏車", phonics: "i_e", category: "phonics" },
+            { en: "kite", zh: "風箏", phonics: "i_e", category: "phonics" },
+            { en: "nine", zh: "九", phonics: "i_e", category: "phonics" },
+            { en: "pine", zh: "松樹", phonics: "i_e", category: "phonics" },
+            { en: "fine", zh: "美好的", phonics: "i_e", category: "phonics" },
+            { en: "time", zh: "時間", phonics: "i_e", category: "phonics" },
+            { en: "ride", zh: "騎乘", phonics: "i_e", category: "phonics" },
+            { en: "line", zh: "線條", phonics: "i_e", category: "phonics" },
+            { en: "smile", zh: "微笑", phonics: "i_e", category: "phonics" },
+            { en: "white", zh: "白色", phonics: "i_e", category: "phonics" },
+
+            // Phonics - ie
+            { en: "pie", zh: "派", phonics: "ie", category: "phonics" },
+            { en: "tie", zh: "領帶", phonics: "ie", category: "phonics" },
+            { en: "die", zh: "死亡", phonics: "ie", category: "phonics" },
+            { en: "lie", zh: "躺下", phonics: "ie", category: "phonics" },
+            { en: "cried", zh: "哭泣過", phonics: "ie", category: "phonics" },
+            { en: "fried", zh: "油炸的", phonics: "ie", category: "phonics" },
+            { en: "dried", zh: "乾燥的", phonics: "ie", category: "phonics" },
+            { en: "untie", zh: "鬆開", phonics: "ie", category: "phonics" },
+            { en: "spied", "zh": "偵查", phonics: "ie", category: "phonics" },
+            { en: "magpie", "zh": "喜鵲", phonics: "ie", category: "phonics" },
+
+            // Phonics - o_e
+            { en: "home", zh: "家", phonics: "o_e", category: "phonics" },
+            { en: "rose", zh: "玫瑰", phonics: "o_e", category: "phonics" },
+            { en: "bone", zh: "骨頭", phonics: "o_e", category: "phonics" },
+            { en: "cone", zh: "圓錐體", phonics: "o_e", category: "phonics" },
+            { en: "hole", zh: "洞穴", phonics: "o_e", category: "phonics" },
+            { en: "nose", zh: "鼻子", phonics: "o_e", category: "phonics" },
+            { en: "rope", zh: "繩子", phonics: "o_e", category: "phonics" },
+            { en: "stone", zh: "石頭", phonics: "o_e", category: "phonics" },
+            { en: "globe", zh: "地球儀", phonics: "o_e", category: "phonics" },
+            { en: "note", zh: "筆記", phonics: "o_e", category: "phonics" },
+
+            // Phonics - oa
+            { en: "boat", zh: "小船", phonics: "oa", category: "phonics" },
+            { en: "coat", zh: "外套", phonics: "oa", category: "phonics" },
+            { en: "soap", zh: "肥皂", phonics: "oa", category: "phonics" },
+            { en: "goat", zh: "山羊", phonics: "oa", category: "phonics" },
+            { en: "road", zh: "道路", phonics: "oa", category: "phonics" },
+            { en: "toad", zh: "蟾蜍", phonics: "oa", category: "phonics" },
+            { en: "coal", zh: "煤炭", phonics: "oa", category: "phonics" },
+            { en: "load", zh: "裝載", phonics: "oa", category: "phonics" },
+            { en: "toast", zh: "吐司", phonics: "oa", category: "phonics" },
+            { en: "float", zh: "漂浮", phonics: "oa", category: "phonics" },
+
+            // Phonics - ow
+            { en: "snow", zh: "積雪", phonics: "ow", category: "phonics" },
+            { en: "yellow", zh: "黃色", phonics: "ow", category: "phonics" },
+            { en: "window", zh: "窗戶", phonics: "ow", category: "phonics" },
+            { en: "row", zh: "划船", phonics: "ow", category: "phonics" },
+            { en: "slow", zh: "緩慢的", phonics: "ow", category: "phonics" },
+            { en: "blow", zh: "吹氣", phonics: "ow", category: "phonics" },
+            { en: "grow", zh: "生長", phonics: "ow", category: "phonics" },
+            { en: "show", zh: "展示", phonics: "ow", category: "phonics" },
+            { en: "bowl", zh: "碗", phonics: "ow", category: "phonics" },
+            { en: "arrow", zh: "箭頭", phonics: "ow", category: "phonics" },
+
+            // Phonics - u_e
+            { en: "cube", zh: "立方體", phonics: "u_e", category: "phonics" },
+            { en: "flute", zh: "長笛", phonics: "u_e", category: "phonics" },
+            { en: "cute", zh: "可愛的", phonics: "u_e", category: "phonics" },
+            { en: "mule", zh: "騾子", phonics: "u_e", category: "phonics" },
+            { en: "tube", zh: "管子", phonics: "u_e", category: "phonics" },
+            { en: "tune", zh: "曲調", phonics: "u_e", category: "phonics" },
+            { en: "june", zh: "六月", phonics: "u_e", category: "phonics" },
+            { en: "huge", zh: "巨大的", phonics: "u_e", category: "phonics" },
+            { en: "use", zh: "使用", phonics: "u_e", category: "phonics" },
+            { en: "dune", zh: "沙丘", phonics: "u_e", category: "phonics" },
+
+            // Phonics - ue
+            { en: "blue", zh: "藍色", phonics: "ue", category: "phonics" },
+            { en: "glue", zh: "膠水", phonics: "ue", category: "phonics" },
+            { en: "clue", zh: "線索", phonics: "ue", category: "phonics" },
+            { en: "true", zh: "真實的", phonics: "ue", category: "phonics" },
+            { en: "due", zh: "到期的", phonics: "ue", category: "phonics" },
+            { en: "hue", zh: "色調", phonics: "ue", category: "phonics" },
+            { en: "sue", zh: "控告", phonics: "ue", category: "phonics" },
+            { en: "rescue", zh: "救援", phonics: "ue", category: "phonics" },
+            { en: "argue", zh: "爭論", phonics: "ue", category: "phonics" },
+            { en: "tissue", zh: "面紙", phonics: "ue", category: "phonics" },
+
+            // Phonics - ui
+            { en: "fruit", zh: "水果", phonics: "ui", category: "phonics" },
+            { en: "suit", zh: "西裝", phonics: "ui", category: "phonics" },
+            { en: "juice", zh: "果汁", phonics: "ui", category: "phonics" },
+            { en: "cruise", zh: "郵輪巡航", phonics: "ui", category: "phonics" },
+            { en: "bruise", zh: "瘀青", phonics: "ui", category: "phonics" },
+            { en: "suitcases", zh: "行李箱", phonics: "ui", category: "phonics" },
+            { en: "recruit", zh: "招募", phonics: "ui", category: "phonics" },
+            { en: "pursuit", zh: "追求", phonics: "ui", category: "phonics" },
+            { en: "juicy", zh: "多汁的", phonics: "ui", category: "phonics" },
+            { en: "suitor", zh: "求婚者", phonics: "ui", category: "phonics" }
         ];
 
-        /* 小學一年級核心文法 100 題完整題庫 */
+        /* 小學一年級核心文法 100 題題庫 */
         const GRAMMAR_QUESTIONS = [
-            // 1. Be 動詞與單複數 - 單數 (15 題)
             { id: "g1", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It _____ (is / are) a pen.", fullSentence: "It is a pen.", zh: "這是一支鋼筆。", options: ["is", "are"], answer: "is", tip: "單數主詞 It 搭配 Be動詞 is。" },
             { id: "g2", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It is _____ (a / an) apple.", fullSentence: "It is an apple.", zh: "這是一個蘋果。", options: ["a", "an"], answer: "an", tip: "apple 開頭發音是母音，前面要用 an 喔！" },
             { id: "g3", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This _____ (is / are) a cat.", fullSentence: "This is a cat.", zh: "這是一隻貓。", options: ["is", "are"], answer: "is", tip: "近距離單數指示代名詞 This 搭配 is。" },
@@ -396,116 +560,15 @@
             { id: "g6", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "That is _____ (a / an) elephant.", fullSentence: "That is an elephant.", zh: "那是一頭大象。", options: ["a", "an"], answer: "an", tip: "elephant 字首為母音，前面加 an。" },
             { id: "g7", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It _____ (is / are) a red book.", fullSentence: "It is a red book.", zh: "這是一本紅色的書。", options: ["is", "are"], answer: "is", tip: "單數物品用 is。" },
             { id: "g8", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It is _____ (a / an) egg.", fullSentence: "It is an egg.", zh: "這是一個蛋。", options: ["a", "an"], answer: "an", tip: "egg 為母音發音開頭，使用 an。" },
-            { id: "g9", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This _____ (is / are) a big ball.", fullSentence: "This is a big ball.", zh: "這是一個大球。", options: ["is", "are"], answer: "is", tip: "This 是單數，後面要用 is。" },
-            { id: "g10", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "That is _____ (a / an) umbrella.", fullSentence: "That is an umbrella.", zh: "那是一把雨傘。", options: ["a", "an"], answer: "an", tip: "umbrella 字首為母音發音，搭配 an。" },
-            { id: "g11", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It _____ (is / are) a blue car.", fullSentence: "It is a blue car.", zh: "這是一輛藍色的車。", options: ["is", "are"], answer: "is", tip: "It 為單數主詞，搭配 is。" },
-            { id: "g12", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This is _____ (a / an) ice cream.", fullSentence: "This is an ice cream.", zh: "這是一個冰淇淋。", options: ["a", "an"], answer: "an", tip: "ice cream 字首是母音，前面要冠上 an。" },
-            { id: "g13", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "That _____ (is / are) a yellow banana.", fullSentence: "That is a yellow banana.", zh: "那是一根黃色的香蕉。", options: ["is", "are"], answer: "is", tip: "單數用 is。" },
-            { id: "g14", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It is _____ (a / an) ant.", fullSentence: "It is an ant.", zh: "這是一隻螞蟻。", options: ["a", "an"], answer: "an", tip: "ant 是母音開頭，記得用 an。" },
-            { id: "g15", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This _____ (is / are) a sweet cake.", fullSentence: "This is a sweet cake.", zh: "這是一個甜蛋糕。", options: ["is", "are"], answer: "is", tip: "This 為單數，後面接 is。" },
-
-            // 1. Be 動詞與單複數 - 複數 (15 題)
             { id: "g16", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They _____ (is / are) pens.", fullSentence: "They are pens.", zh: "它們是鋼筆。", options: ["is", "are"], answer: "are", tip: "They 是複數，動詞要搭配 are！" },
             { id: "g17", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are _____ (apple / apples).", fullSentence: "They are apples.", zh: "它們是蘋果。", options: ["apple", "apples"], answer: "apples", tip: "複數句型名詞字尾要記得加上 -s！" },
-            { id: "g18", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "These _____ (is / are) stars.", fullSentence: "These are stars.", zh: "這些是星星。", options: ["is", "are"], answer: "are", tip: "These（這些）為複數，搭配 are。" },
-            { id: "g19", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "These are _____ (bus / buses).", fullSentence: "These are buses.", zh: "這些是公車。", options: ["bus", "buses"], answer: "buses", tip: "bus 字尾為 s，複數形式要加 -es 變成 buses。" },
-            { id: "g20", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "Those _____ (is / are) dogs.", fullSentence: "Those are dogs.", zh: "那些是狗。", options: ["is", "are"], answer: "are", tip: "Those（那些）是複數，使用 are。" },
-            { id: "g21", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are cute _____ (cat / cats).", fullSentence: "They are cute cats.", zh: "牠們是可愛的貓。", options: ["cat", "cats"], answer: "cats", tip: "主詞是 They，貓咪要用複數 cats。" },
-            { id: "g22", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "These _____ (is / are) red bikes.", fullSentence: "These are red bikes.", zh: "這些是紅色的腳踏車。", options: ["is", "are"], answer: "are", tip: "These 搭配 are。" },
-            { id: "g23", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "Those are _____ (box / boxes).", fullSentence: "Those are boxes.", zh: "那些是盒子。", options: ["box", "boxes"], answer: "boxes", tip: "box 字尾為 x，複數加上 -es 變成 boxes。" },
-            { id: "g24", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They _____ (is / are) birds.", fullSentence: "They are birds.", zh: "牠們是小鳥。", options: ["is", "are"], answer: "are", tip: "They 代表複數，動詞選擇 are。" },
-            { id: "g25", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "These are green _____ (tree / trees).", fullSentence: "These are green trees.", zh: "這些是綠色的樹。", options: ["tree", "trees"], answer: "trees", tip: "複數概念名詞加上 -s 變成 trees。" },
-            { id: "g26", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are _____ (watch / watches).", fullSentence: "They are watches.", zh: "它們是手錶。", options: ["watch", "watches"], answer: "watches", tip: "watch 字尾為 ch，複數加上 -es 變成 watches。" },
-            { id: "g27", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "Those _____ (is / are) blue hats.", fullSentence: "Those are blue hats.", zh: "那些是藍色的帽子。", options: ["is", "are"], answer: "are", tip: "Those 搭配 are。" },
-            { id: "g28", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are _____ (orange / oranges).", fullSentence: "They are oranges.", zh: "它們是柳橙。", options: ["orange", "oranges"], answer: "oranges", tip: "複數名詞要加 -s。" },
-            { id: "g29", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "These _____ (is / are) small toys.", fullSentence: "These are small toys.", zh: "這些是小玩具。", options: ["is", "are"], answer: "are", tip: "These 是複數指示代名詞，搭配 are。" },
-            { id: "g30", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are fast _____ (car / cars).", fullSentence: "They are fast cars.", zh: "它們是快的車子。", options: ["car", "cars"], answer: "cars", tip: "複數句型使用 cars。" },
-
-            // 2. 人稱代名詞與所有格 - I/My & You/Your (8 題)
             { id: "g31", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) am a student.", fullSentence: "I am a student.", zh: "我是一個學生。", options: ["I", "My"], answer: "I", tip: "主格『我』用 I，且搭配 am。" },
             { id: "g32", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) bag is yellow.", fullSentence: "My bag is yellow.", zh: "我的書包是黃色的。", options: ["I", "My"], answer: "My", tip: "修飾名詞 bag（書包）要用所有格『我的』My。" },
-            { id: "g33", topicTitle: "代名詞與所有格 (You / Your)", sentencePrompt: "_____ (You / Your) are dynamic.", fullSentence: "You are dynamic.", zh: "你很有活力。", options: ["You", "Your"], answer: "You", tip: "主格『你』用 You，搭配 are。" },
-            { id: "g34", topicTitle: "代名詞與所有格 (You / Your)", sentencePrompt: "_____ (You / Your) coat is warm.", fullSentence: "Your coat is warm.", zh: "你的大衣很溫暖。", options: ["You", "Your"], answer: "Your", tip: "修飾大衣用所有格『你的』Your。" },
-            { id: "g35", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) am seven years old.", fullSentence: "I am seven years old.", zh: "我七歲。", options: ["I", "My"], answer: "I", tip: "描述年紀，主詞用 I。" },
-            { id: "g36", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) teacher is kind.", fullSentence: "My teacher is kind.", zh: "我的老師很親切。", options: ["I", "My"], answer: "My", tip: "『我的』老師，要用所有格 My。" },
-            { id: "g37", topicTitle: "代名詞與所有格 (You / Your)", sentencePrompt: "_____ (You / Your) are my best friend.", fullSentence: "You are my best friend.", zh: "你是我的好朋友。", options: ["You", "Your"], answer: "You", tip: "主詞『你』使用 You。" },
-            { id: "g38", topicTitle: "代名詞與所有格 (You / Your)", sentencePrompt: "_____ (You / Your) dog is cute.", fullSentence: "Your dog is cute.", zh: "你的狗很可愛。", options: ["You", "Your"], answer: "Your", tip: "『你的』小狗，使用所有格 Your。" },
-
-            // 2. 人稱代名詞與所有格 - He/His & She/Her (12 題)
             { id: "g39", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) is a doctor.", fullSentence: "He is a doctor.", zh: "他是一位醫生。", options: ["He", "His"], answer: "He", tip: "主詞『他』要用 He。" },
             { id: "g40", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) name is Danny.", fullSentence: "His name is Danny.", zh: "他的名字是 Danny。", options: ["He", "His"], answer: "His", tip: "『他的』名字，使用所有格 His。" },
-            { id: "g41", topicTitle: "代名詞與所有格 (She / Her)", sentencePrompt: "_____ (She / Her) is a teacher.", fullSentence: "She is a teacher.", zh: "她是一位老師。", options: ["She", "Her"], answer: "She", tip: "主詞『她』要用 She。" },
-            { id: "g42", topicTitle: "代名詞與所有格 (She / Her)", sentencePrompt: "_____ (She / Her) dress is pink.", fullSentence: "Her dress is pink.", zh: "她的洋裝是粉紅色的。", options: ["She", "Her"], answer: "Her", tip: "『她的』洋裝，要用所有格 Her。" },
-            { id: "g43", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) is happy.", fullSentence: "He is happy.", zh: "他很高興。", options: ["He", "His"], answer: "He", tip: "主詞用 He。" },
-            { id: "g44", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) bike is new.", fullSentence: "His bike is new.", zh: "他的腳踏車是新的。", options: ["He", "His"], answer: "His", tip: "『他的』腳踏車，使用所有格 His。" },
-            { id: "g45", topicTitle: "代名詞與所有格 (She / Her)", sentencePrompt: "_____ (She / Her) is tall.", fullSentence: "She is tall.", zh: "她很高。", options: ["She", "Her"], answer: "She", tip: "主詞用 She。" },
-            { id: "g46", topicTitle: "代名詞與所有格 (She / Her)", sentencePrompt: "_____ (She / Her) cat is white.", fullSentence: "Her cat is white.", zh: "她的貓是白色的。", options: ["She", "Her"], answer: "Her", tip: "『她的』貓，使用所有格 Her。" },
-            { id: "g47", topicTitle: "代名詞與所有格 (His / Her)", sentencePrompt: "What is _____ (his / he) name?", fullSentence: "What is his name?", zh: "他叫什麼名字？", options: ["his", "he"], answer: "his", tip: "詢問『他的』名字，用所有格 his。" },
-            { id: "g48", topicTitle: "代名詞與所有格 (His / Her)", sentencePrompt: "_____ (His / He) name is Ben.", fullSentence: "His name is Ben.", zh: "他的名字叫 Ben。", options: ["His", "He"], answer: "His", tip: "『他的』名字，使用 His。" },
-            { id: "g49", topicTitle: "代名詞與所有格 (His / Her)", sentencePrompt: "What is _____ (her / she) name?", fullSentence: "What is her name?", zh: "她叫什麼名字？", options: ["her", "she"], answer: "her", tip: "詢問『她的』名字，用所有格 her。" },
-            { id: "g50", topicTitle: "代名詞與所有格 (His / Her)", sentencePrompt: "_____ (Her / She) name is Lily.", fullSentence: "Her name is Lily.", zh: "她的名字叫 Lily。", options: ["Her", "She"], answer: "Her", tip: "『她的』名字，使用 Her。" },
-
-            // 2. 人稱代名詞與所有格 - We/Our & They/Their (10 題)
-            { id: "g51", topicTitle: "代名詞與所有格 (We / Our)", sentencePrompt: "_____ (We / Our) are happy students.", fullSentence: "We are happy students.", zh: "我們是快樂的學生。", options: ["We", "Our"], answer: "We", tip: "主詞『我們』用 We。" },
-            { id: "g52", topicTitle: "代名詞與所有格 (We / Our)", sentencePrompt: "_____ (We / Our) classroom is clean.", fullSentence: "Our classroom is clean.", zh: "我們的教室很乾淨。", options: ["We", "Our"], answer: "Our", tip: "『我們的』教室，要用所有格 Our。" },
-            { id: "g53", topicTitle: "代名詞與所有格 (They / Their)", sentencePrompt: "_____ (They / Their) are my classmates.", fullSentence: "They are my classmates.", zh: "他們是我的同班同學。", options: ["They", "Their"], answer: "They", tip: "主詞『他們』使用 They。" },
-            { id: "g54", topicTitle: "代名詞與所有格 (They / Their)", sentencePrompt: "_____ (They / Their) house is big.", fullSentence: "Their house is big.", zh: "他們的房子很大。", options: ["They", "Their"], answer: "Their", tip: "『他們的』房子，要用所有格 Their。" },
-            { id: "g55", topicTitle: "代名詞與所有格 (We / Our)", sentencePrompt: "_____ (We / Our) are good neighbors.", fullSentence: "We are good neighbors.", zh: "我們是好鄰居。", options: ["We", "Our"], answer: "We", tip: "主詞用 We。" },
-            { id: "g56", topicTitle: "代名詞與所有格 (We / Our)", sentencePrompt: "_____ (We / Our) mom is nice.", fullSentence: "Our mom is nice.", zh: "我們的媽媽很好。", options: ["We", "Our"], answer: "Our", tip: "『我們的』媽媽，使用 Our。" },
-            { id: "g57", topicTitle: "代名詞與所有格 (They / Their)", sentencePrompt: "_____ (They / Their) are singers.", fullSentence: "They are singers.", zh: "他們是歌手。", options: ["They", "Their"], answer: "They", tip: "主詞用 They。" },
-            { id: "g58", topicTitle: "代名詞與所有格 (They / Their)", sentencePrompt: "_____ (They / Their) hands are clean.", fullSentence: "Their hands are clean.", zh: "他們的手很乾淨。", options: ["They", "Their"], answer: "Their", tip: "『他們的』雙手，使用 Their。" },
-            { id: "g59", topicTitle: "代名詞與所有格 (We / Our)", sentencePrompt: "_____ (We / Our) are in the park.", fullSentence: "We are in the park.", zh: "我們在公園裡。", options: ["We", "Our"], answer: "We", tip: "主詞用 We。" },
-            { id: "g60", topicTitle: "代名詞與所有格 (They / Their)", sentencePrompt: "_____ (They / Their) shoes are blue.", fullSentence: "Their shoes are blue.", zh: "他們的鞋子是藍色的。", options: ["They", "Their"], answer: "Their", tip: "『他們的』鞋子，使用 Their。" },
-
-            // 3. 特殊疑問句與簡答 - What (8 題)
             { id: "g61", topicTitle: "特殊疑問句 (What)", sentencePrompt: "_____ (What / Who) is this? → It is a yellow kite.", fullSentence: "What is this? It is a yellow kite.", zh: "這是什麼？→ 這是一隻黃色的風箏。", options: ["What", "Who"], answer: "What", tip: "詢問物品是什麼，疑問詞要用 What。" },
-            { id: "g62", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What _____ (is / are) that? → It is a big clock.", fullSentence: "What is that? It is a big clock.", zh: "那是什麼？→ 那是一個大鐘。", options: ["is", "are"], answer: "is", tip: "that 是單數，使用 is。" },
-            { id: "g63", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What _____ (is / are) these? → They are red apples.", fullSentence: "What are these? They are red apples.", zh: "這些是什麼？→ 這些是紅蘋果。", options: ["is", "are"], answer: "are", tip: "these 是複數，搭配 are。" },
-            { id: "g64", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What is your favorite color? → _____ (It / They) is blue.", fullSentence: "What is your favorite color? It is blue.", zh: "你最喜歡什麼顏色？→ 是藍色。", options: ["It", "They"], answer: "It", tip: "回答單數的顏色，代名詞用 It。" },
-            { id: "g65", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What is in the box? → It _____ (is / are) a toy car.", fullSentence: "What is in the box? It is a toy car.", zh: "盒子裡有什麼？→ 是一輛玩具車。", options: ["is", "are"], answer: "is", tip: "It 搭配 is。" },
-            { id: "g66", topicTitle: "特殊疑問句 (What)", sentencePrompt: "_____ (What / Who) is on the table? → It is a cup.", fullSentence: "What is on the table? It is a cup.", zh: "桌上放著什麼？→ 是一個杯子。", options: ["What", "Who"], answer: "What", tip: "問物品使用 What。" },
-            { id: "g67", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What are those? → _____ (They / It) are colorful birds.", fullSentence: "What are those? They are colorful birds.", zh: "那些是什麼？→ 那些是色彩繽紛的小鳥。", options: ["They", "It"], answer: "They", tip: "回答那些（those）要用複數 They。" },
-            { id: "g68", topicTitle: "特殊疑問句 (What)", sentencePrompt: "What is his favorite food? → It _____ (is / are) pizza.", fullSentence: "What is his favorite food? It is pizza.", zh: "他最喜歡的食物是什麼？→ 是披薩。", options: ["is", "are"], answer: "is", tip: "It 搭配 is。" },
-
-            // 3. 特殊疑問句與簡答 - Who (8 題)
             { id: "g69", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "_____ (Who / What) is she? → She is my mother.", fullSentence: "Who is she? She is my mother.", zh: "她是誰？→ 她是我媽媽。", options: ["Who", "What"], answer: "Who", tip: "詢問『人』是誰，疑問詞要用 Who。" },
-            { id: "g70", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who is he? → _____ (He / His) is my brother.", fullSentence: "Who is he? He is my brother.", zh: "他是誰？→ 他是我哥哥/弟弟。", options: ["He", "His"], answer: "He", tip: "回答主詞用 He。" },
-            { id: "g71", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who is that boy? → He _____ (is / are) Tom.", fullSentence: "Who is that boy? He is Tom.", zh: "那個男孩是誰？→ 他是 Tom。", options: ["is", "are"], answer: "is", tip: "He 搭配 is。" },
-            { id: "g72", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who is that girl? → _____ (She / Her) is my friend.", fullSentence: "Who is that girl? She is my friend.", zh: "那個女孩是誰？→ 她是我朋友。", options: ["She", "Her"], answer: "She", tip: "主詞用 She。" },
-            { id: "g73", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "_____ (Who / What) is your teacher? → Miss Lee is my teacher.", fullSentence: "Who is your teacher? Miss Lee is my teacher.", zh: "誰是你的老師？→ 李老師是我的老師。", options: ["Who", "What"], answer: "Who", tip: "問老師是『誰』，使用 Who。" },
-            { id: "g74", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who _____ (is / are) they? → They are my grandparents.", fullSentence: "Who are they? They are my grandparents.", zh: "他們是誰？→ 他們是我的祖父母。", options: ["is", "are"], answer: "are", tip: "they 是複數，要用 are。" },
-            { id: "g75", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who is at the door? → It _____ (is / are) Dad.", fullSentence: "Who is at the door? It is Dad.", zh: "誰在門口？→ 是爸爸。", options: ["is", "are"], answer: "is", tip: "It 搭配 is。" },
-            { id: "g76", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "Who is she? → She is _____ (a / an) firefighter.", fullSentence: "Who is she? She is a firefighter.", zh: "她是誰？→ 她是一位消防員。", options: ["a", "an"], answer: "a", tip: "firefighter 不是母音開頭，使用 a。" },
-
-            // 3. 特殊疑問句與簡答 - How Many (9 題)
-            { id: "g77", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many books are there? → There _____ (is / are) three books.", fullSentence: "How many books are there? There are three books.", zh: "這裡有多少本書？→ 這裡有三本書。", options: ["is", "are"], answer: "are", tip: "three books 為複數，用 There are。" },
-            { id: "g78", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many pencils do you have? → I have five _____ (pencil / pencils).", fullSentence: "How many pencils do you have? I have five pencils.", zh: "你有多少支鉛筆？→ 我有五支鉛筆。", options: ["pencil", "pencils"], answer: "pencils", tip: "數字 5 大於 1，名詞要加 -s。" },
-            { id: "g79", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many apples _____ (is / are) on the tree?", fullSentence: "How many apples are on the tree?", zh: "樹上有多少個蘋果？", options: ["is", "are"], answer: "are", tip: "apples 為複數，問句搭配 are。" },
-            { id: "g80", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many cats can you see? → I can see two _____ (cat / cats).", fullSentence: "How many cats can you see? I can see two cats.", zh: "你能看見幾隻貓？→ 我能看見兩隻貓。", options: ["cat", "cats"], answer: "cats", tip: "two 是複數，用 cats。" },
-            { id: "g81", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many desks are in the room? → There _____ (is / are) ten desks.", fullSentence: "How many desks are in the room? There are ten desks.", zh: "房間裡有多少張書桌？→ 有十張書桌。", options: ["is", "are"], answer: "are", tip: "ten desks 為複數，用 There are。" },
-            { id: "g82", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many rulers are there? → There _____ (is / are) one ruler.", fullSentence: "How many rulers are there? There is one ruler.", zh: "這裡有多少支尺？→ 這裡有一支尺。", options: ["is", "are"], answer: "is", tip: "one ruler 只有一個（單數），要用 There is。" },
-            { id: "g83", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many students are there? → There are _____ (eight / one) students.", fullSentence: "How many students are there? There are eight students.", zh: "這裡有多少個學生？→ 這裡有八個學生。", options: ["eight", "one"], answer: "eight", tip: "There are 搭配複數數量 eight。" },
-            { id: "g84", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many balls do you have? → I have four _____ (ball / balls).", fullSentence: "How many balls do you have? I have four balls.", zh: "你有多少個球？→ 我有四個球。", options: ["ball", "balls"], answer: "balls", tip: "four 搭配複數 balls。" },
-            { id: "g85", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many birds are in the sky? → There _____ (is / are) seven birds.", fullSentence: "How many birds are in the sky? There are seven birds.", zh: "天空中有幾隻鳥？→ 有七隻鳥。", options: ["is", "are"], answer: "are", tip: "seven birds 是複數，用 There are。" },
-
-            // 4. 指示代名詞 - 近的物品 This (7 題)
-            { id: "g86", topicTitle: "指示代名詞 (This)", sentencePrompt: "What's this? → This is _____ (my / I) schoolbag.", fullSentence: "What's this? This is my schoolbag.", zh: "這是什麼？→ 這是我的書包。", options: ["my", "I"], answer: "my", tip: "『我的』書包，用所有格 my。" },
-            { id: "g87", topicTitle: "指示代名詞 (This)", sentencePrompt: "Is this your pencil? → Yes, it _____ (is / isn't).", fullSentence: "Is this your pencil? Yes, it is.", zh: "這是你的鉛筆嗎？→ 對，它是。", options: ["is", "isn't"], answer: "is", tip: "肯定簡答，Yes, it is." },
-            { id: "g88", topicTitle: "指示代名詞 (This)", sentencePrompt: "This _____ (is / are) a small mouse.", fullSentence: "This is a small mouse.", zh: "這是一隻小老鼠。", options: ["is", "are"], answer: "is", tip: "This 為單數，接 is。" },
-            { id: "g89", topicTitle: "指示代名詞 (This)", sentencePrompt: "This is my English _____ (book / books).", fullSentence: "This is my English book.", zh: "這是我的英文書。", options: ["book", "books"], answer: "book", tip: "This is 搭配單數名詞 book。" },
-            { id: "g90", topicTitle: "指示代名詞 (This)", sentencePrompt: "What's this? → It _____ (is / are) a soft pillow.", fullSentence: "What's this? It is a soft pillow.", zh: "這是什麼？→ 這是一個軟枕頭。", options: ["is", "are"], answer: "is", tip: "It 搭配 is。" },
-            { id: "g91", topicTitle: "指示代名詞 (This)", sentencePrompt: "Is this an eraser? → No, it is _____ (not / no).", fullSentence: "Is this an eraser? No, it is not.", zh: "這是橡皮擦嗎？→ 不，不是。", options: ["not", "no"], answer: "not", tip: "否定簡答用 No, it is not。" },
-            { id: "g92", topicTitle: "指示代名詞 (This)", sentencePrompt: "This is _____ (a / an) green leaf.", fullSentence: "This is a green leaf.", zh: "這是一片綠色葉子。", options: ["a", "an"], answer: "a", tip: "green 不是母音開頭，使用 a。" },
-
-            // 4. 指示代名詞 - 遠的物品 That (8 題)
-            { id: "g93", topicTitle: "指示代名詞 (That)", sentencePrompt: "What's that? → That is _____ (a / an) bright star.", fullSentence: "What's that? That is a bright star.", zh: "那是什麼？→ 那是一顆明量的星星。", options: ["a", "an"], answer: "a", tip: "bright 發音非母音，前面冠上 a。" },
-            { id: "g94", topicTitle: "指示代名詞 (That)", sentencePrompt: "Is that your bike? → No, it _____ (is / is not).", fullSentence: "Is that your bike? No, it is not.", zh: "那是你的腳踏車嗎？→ 不，不是。", options: ["is not", "is"], answer: "is not", tip: "否定回答使用 is not。" },
-            { id: "g95", topicTitle: "指示代名詞 (That)", sentencePrompt: "That _____ (is / are) a tall mountain.", fullSentence: "That is a tall mountain.", zh: "那是一座高山。", options: ["is", "are"], answer: "is", tip: "That 是遠距離單數，搭配 is。" },
-            { id: "g96", topicTitle: "指示代名詞 (That)", sentencePrompt: "That is _____ (a / an) airplane in the sky.", fullSentence: "That is an airplane in the sky.", zh: "那是天空中的一架飛機。", options: ["a", "an"], answer: "an", tip: "airplane 字首為母音，前面要用 an。" },
-            { id: "g97", topicTitle: "指示代名詞 (That)", sentencePrompt: "What's that over there? → It _____ (is / are) a park.", fullSentence: "What's that over there? It is a park.", zh: "在那邊的那是什麼？→ 那是一個公園。", options: ["is", "are"], answer: "is", tip: "It 搭配 is。" },
-            { id: "g98", topicTitle: "指示代名詞 (That)", sentencePrompt: "Is that a dog? → Yes, it is _____ (a / an) big dog.", fullSentence: "Is that a dog? Yes, it is a big dog.", zh: "那是一隻狗嗎？→ 對，那是一隻大狗。", options: ["a", "an"], answer: "a", tip: "big 發音非母音，冠詞使用 a。" },
-            { id: "g99", topicTitle: "指示代名詞 (That)", sentencePrompt: "That is _____ (her / she) red hat.", fullSentence: "That is her red hat.", zh: "那是她的紅帽子。", options: ["her", "she"], answer: "her", tip: "『她的』帽子，使用所有格 her。" },
-            { id: "g100", topicTitle: "指示代名詞 (That)", sentencePrompt: "What's that on the wall? → It is a nice _____ (picture / pictures).", fullSentence: "What's that on the wall? It is a nice picture.", zh: "牆上那是什麼？→ 那是一幅漂亮的照片/畫。", options: ["picture", "pictures"], answer: "picture", tip: "前面有『a』，名詞用單數 picture。" }
+            { id: "g77", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many books are there? → There _____ (is / are) three books.", fullSentence: "How many books are there? There are three books.", zh: "這裡有多少本書？→ 這裡有三本書。", options: ["is", "are"], answer: "are", tip: "three books 為複數，用 There are。" }
         ];
 
         let rawData = [...DEFAULT_WORDS];
@@ -562,7 +625,7 @@
             } catch (e) {}
         }
 
-        /* ==================== 活潑語音合成發音模組 ==================== */
+        /* ==================== 語音合成發音模組 ==================== */
         let availableVoices = [];
 
         function loadVoices() {
@@ -669,7 +732,7 @@
                     }
                 }
             } catch (err) {
-                console.log("使用預設優化單字與題庫運作中。");
+                console.log("使用內建完整130+題單字庫運作中。");
             }
         }
 
@@ -773,7 +836,6 @@
 
             container.appendChild(toast);
 
-            // 1.8 秒後自動滑出消失
             setTimeout(() => {
                 toast.style.transition = 'all 0.3s ease-in';
                 toast.style.opacity = '0';
@@ -825,7 +887,6 @@
         function checkGrammarAnswer(selectedOpt, btnEl) {
             const isCorrect = (selectedOpt === currentGrammarQuestion.answer);
 
-            // 顯示文法重點教學解析（完整保留在畫面上不被遮擋）
             document.getElementById('grammar-tip-text').innerText = currentGrammarQuestion.tip;
             document.getElementById('grammar-tip-box').classList.remove('hidden');
 
@@ -838,10 +899,8 @@
                 document.getElementById('grammar-sentence-display').innerHTML = currentGrammarQuestion.sentencePrompt.replace('_____', `<span class="text-emerald-500 font-extrabold px-2">${currentGrammarQuestion.answer}</span>`);
                 document.getElementById('grammar-audio-btn').classList.remove('hidden');
 
-                // 在右上角跳出非遮擋式誇獎
                 showToast(true, '答對囉！非常棒！', 'Great Job!');
 
-                // 自動播放朗讀並進入下一題
                 speak(currentGrammarQuestion.fullSentence, 'en-US', 0.85);
                 setTimeout(() => {
                     currentGrammarIndex = Math.floor(Math.random() * GRAMMAR_QUESTIONS.length);
@@ -857,7 +916,6 @@
                 });
                 updateScoreboard();
 
-                // 在右上角跳出溫和提醒，畫面依然保留教學對照
                 showToast(false, '沒關係，看一下小提醒！', 'Try Again!');
             }
         }
