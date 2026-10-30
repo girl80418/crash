@@ -153,7 +153,7 @@
                     <div id="prog-listening" class="text-sm font-extrabold text-yellow-300">0 / 10</div>
                 </div>
                 <div class="bg-white/15 p-2 rounded-2xl border border-white/20">
-                    <div class="text-sky-200 mb-0.5">📚 小一文法</div>
+                    <div class="text-sky-200 mb-0.5">📚 文法與例句</div>
                     <div id="prog-grammar" class="text-sm font-extrabold text-yellow-300">0 / 10</div>
                 </div>
             </div>
@@ -163,13 +163,18 @@
         <div class="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-cute max-w-xl mx-auto mb-8 border-2 border-pink-100">
             <label class="block text-pink-600 font-bold mb-1.5 text-sm md:text-base">🎯 單字遊戲主題分類：</label>
             <select id="category-select" class="w-full bg-pink-50 border-2 border-pink-200 text-pink-700 text-sm md:text-base rounded-xl p-2.5 font-bold focus:outline-none focus:ring-2 focus:ring-pink-400">
-                <option value="all">🌟 全部主題 (130+ 隨機綜合庫)</option>
-                <option value="phonics">🔤 自然發音特訓 (Phonics)</option>
-                <option value="school">🎒 學校與用品 (School & Supplies)</option>
-                <option value="colors">🎨 顏色與色彩 (Colors)</option>
-                <option value="nature">☀️ 大自然與環境 (Nature)</option>
+                <option value="all">🌟 全部主題 (290+ Excel 完整單字庫)</option>
+                <option value="phonics">🔤 自然發音特訓 (Phonics 110+ 詞)</option>
+                <option value="school">🎒 學校與課堂 (Our World Unit 1)</option>
+                <option value="daily">☀️ 天氣季節星期 (Our World Unit 2)</option>
+                <option value="food">🍎 美味食物與餐飲 (Food 30+ 詞)</option>
+                <option value="classroom">✏️ 教室相關設備 (Classroom)</option>
+                <option value="body">👀 身體部位 (Body Parts)</option>
+                <option value="clothes">👕 衣物與飾品 (Clothes)</option>
                 <option value="animals">🐾 可愛動物 (Animals)</option>
-                <option value="food">🍎 美味食物與點心 (Food & Snacks)</option>
+                <option value="leisure">⚽ 休閒與活動 (Leisure)</option>
+                <option value="months">📅 月份與日期 (Months)</option>
+                <option value="people">👨‍👩‍👧 人物與家庭 (People)</option>
             </select>
         </div>
         
@@ -209,8 +214,8 @@
                 <span class="absolute top-2 right-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">新登場</span>
                 <div class="text-5xl mb-2 group-hover:bounce transition transform">📚</div>
                 <div>
-                    <div class="text-xl font-extrabold text-purple-600 mb-1">小一基礎文法</div>
-                    <p class="text-xs text-gray-500 leading-relaxed">Am/Is/Are, 代名詞, Wh-問句, This/That 100題精選特訓！</p>
+                    <div class="text-xl font-extrabold text-purple-600 mb-1">文法與發音例句練習</div>
+                    <p class="text-xs text-gray-500 leading-relaxed">Our World 課本句型、發音閱讀例句、進行式縮寫與基礎文法精選特訓！</p>
                 </div>
                 <button class="mt-4 bg-purple-500 text-white font-bold px-5 py-1.5 rounded-full text-xs shadow-sm group-hover:bg-purple-600">開始玩 ➔</button>
             </div>
@@ -334,242 +339,2283 @@
     <script>
         /* ==================== 升級與融入完整的單字庫 (130+ 題) ==================== */
         const DEFAULT_WORDS = [
-            // 學校與用品 (School & Supplies)
-            { en: "a pen", zh: "原子筆", category: "school" },
-            { en: "a pencil", zh: "鉛筆", category: "school" },
-            { en: "a ruler", zh: "尺", category: "school" },
-            { en: "a book", zh: "書本", category: "school" },
-            { en: "a desk", zh: "書桌", category: "school" },
-            { en: "a table", zh: "桌子", category: "school" },
-            { en: "a picture", zh: "圖片", category: "school" },
-            { en: "a chair", zh: "椅子", category: "school" },
-            { en: "a computer", zh: "電腦", category: "school" },
-            { en: "an eraser", zh: "橡皮擦", category: "school" },
-            { en: "a crayon", zh: "蠟筆", category: "school" },
-
-            // 顏色 (Colors)
-            { en: "red", zh: "紅色", category: "colors" },
-            { en: "orange", zh: "橘色", category: "colors" },
-            { en: "yellow", zh: "黃色", category: "colors" },
-            { en: "green", zh: "綠色", category: "colors" },
-            { en: "blue", zh: "藍色", category: "colors" },
-            { en: "purple", zh: "紫色", category: "colors" },
-            { en: "pink", zh: "粉紅色", category: "colors" },
-            { en: "black", zh: "黑色", category: "colors" },
-            { en: "white", zh: "白色", category: "colors" },
-
-            // 大自然 (Nature)
-            { en: "the sky", zh: "天空", category: "nature" },
-            { en: "the sun", zh: "太陽", category: "nature" },
-            { en: "the moon", zh: "月亮", category: "nature" },
-            { en: "the ocean", zh: "海洋", category: "nature" },
-            { en: "a star/stars", zh: "星星", category: "nature" },
-            { en: "a tree/trees", zh: "樹木", category: "nature" },
-
-            // 動物 (Animals)
-            { en: "a frog/frogs", zh: "青蛙", category: "animals" },
-            { en: "a dog", zh: "狗", category: "animals" },
-            { en: "a cat", zh: "貓", category: "animals" },
-            { en: "a duck", zh: "鴨子", category: "animals" },
-            { en: "a rabbit", zh: "兔子", category: "animals" },
-
-            // 食物 (Food)
-            { en: "a banana", zh: "香蕉", category: "food" },
-            { en: "an apple", zh: "蘋果", category: "food" },
-            { en: "a cookie", zh: "餅乾", category: "food" },
-            { en: "an egg", zh: "蛋", category: "food" },
-            { en: "milk", zh: "牛奶", category: "food" },
-            { en: "rice", zh: "米飯", category: "food" },
-
-            // 自然發音 (Phonics - a_e)
-            { en: "cake", zh: "蛋糕", phonics: "a_e", category: "phonics" },
-            { en: "tape", zh: "膠帶", phonics: "a_e", category: "phonics" },
-            { en: "wave", zh: "海浪", phonics: "a_e", category: "phonics" },
-            { en: "cave", zh: "洞穴", phonics: "a_e", category: "phonics" },
-            { en: "game", zh: "遊戲", phonics: "a_e", category: "phonics" },
-            { en: "lake", zh: "湖泊", phonics: "a_e", category: "phonics" },
-            { en: "make", zh: "製作", phonics: "a_e", category: "phonics" },
-            { en: "name", zh: "名字", phonics: "a_e", category: "phonics" },
-            { en: "plate", zh: "盤子", phonics: "a_e", category: "phonics" },
-            { en: "gate", zh: "大門", phonics: "a_e", category: "phonics" },
-
-            // Phonics - ai
-            { en: "rain", zh: "下雨", phonics: "ai", category: "phonics" },
-            { en: "tail", zh: "尾巴", phonics: "ai", category: "phonics" },
-            { en: "wait", zh: "等待", phonics: "ai", category: "phonics" },
-            { en: "train", zh: "火車", phonics: "ai", category: "phonics" },
-            { en: "pain", zh: "疼痛", phonics: "ai", category: "phonics" },
-            { en: "mail", zh: "信件", phonics: "ai", category: "phonics" },
-            { en: "sail", zh: "航行", phonics: "ai", category: "phonics" },
-            { en: "nail", zh: "指甲", phonics: "ai", category: "phonics" },
-            { en: "brain", zh: "大腦", phonics: "ai", category: "phonics" },
-            { en: "chain", zh: "鎖鏈", phonics: "ai", category: "phonics" },
-
-            // Phonics - ay
-            { en: "day", zh: "白天", phonics: "ay", category: "phonics" },
-            { en: "play", zh: "玩耍", phonics: "ay", category: "phonics" },
-            { en: "say", zh: "說話", phonics: "ay", category: "phonics" },
-            { en: "way", zh: "道路", phonics: "ay", category: "phonics" },
-            { en: "may", zh: "可以", phonics: "ay", category: "phonics" },
-            { en: "bay", zh: "海灣", phonics: "ay", category: "phonics" },
-            { en: "pay", zh: "付款", phonics: "ay", category: "phonics" },
-            { en: "hay", zh: "乾草", phonics: "ay", category: "phonics" },
-            { en: "ray", zh: "光線", phonics: "ay", category: "phonics" },
-            { en: "clay", zh: "黏土", phonics: "ay", category: "phonics" },
-
-            // Phonics - ee
-            { en: "tree", zh: "樹木", phonics: "ee", category: "phonics" },
-            { en: "feet", zh: "雙腳", phonics: "ee", category: "phonics" },
-            { en: "bee", zh: "蜜蜂", phonics: "ee", category: "phonics" },
-            { en: "see", zh: "看見", phonics: "ee", category: "phonics" },
-            { en: "green", zh: "綠色", phonics: "ee", category: "phonics" },
-            { en: "queen", zh: "女王", phonics: "ee", category: "phonics" },
-            { en: "sweet", zh: "甜的", phonics: "ee", category: "phonics" },
-            { en: "keep", zh: "保持", phonics: "ee", category: "phonics" },
-            { en: "sleep", zh: "睡覺", phonics: "ee", category: "phonics" },
-            { en: "deep", zh: "深的", phonics: "ee", category: "phonics" },
-
-            // Phonics - ea
-            { en: "leaf", zh: "樹葉", phonics: "ea", category: "phonics" },
-            { en: "meat", zh: "肉類", phonics: "ea", category: "phonics" },
-            { en: "read", zh: "閱讀", phonics: "ea", category: "phonics" },
-            { en: "tea", zh: "茶", phonics: "ea", category: "phonics" },
-            { en: "sea", zh: "海洋", phonics: "ea", category: "phonics" },
-            { en: "eat", zh: "吃", phonics: "ea", category: "phonics" },
-            { en: "clean", zh: "乾淨的", phonics: "ea", category: "phonics" },
-            { en: "beach", zh: "海灘", phonics: "ea", category: "phonics" },
-            { en: "peach", zh: "水蜜桃", phonics: "ea", category: "phonics" },
-            { en: "team", zh: "團隊", phonics: "ea", category: "phonics" },
-
-            // Phonics - y
-            { en: "happy", zh: "快樂的", phonics: "y", category: "phonics" },
-            { en: "candy", zh: "糖果", phonics: "y", category: "phonics" },
-            { en: "baby", zh: "嬰兒", phonics: "y", category: "phonics" },
-            { en: "funny", zh: "有趣的", phonics: "y", category: "phonics" },
-            { en: "sunny", zh: "晴朗的", phonics: "y", category: "phonics" },
-            { en: "windy", zh: "颳風的", phonics: "y", category: "phonics" },
-            { en: "puppy", zh: "小狗", phonics: "y", category: "phonics" },
-            { en: "bunny", zh: "小兔子", phonics: "y", category: "phonics" },
-            { en: "story", zh: "故事", phonics: "y", category: "phonics" },
-            { en: "party", zh: "派對", phonics: "y", category: "phonics" },
-
-            // Phonics - i_e
-            { en: "bike", zh: "腳踏車", phonics: "i_e", category: "phonics" },
-            { en: "kite", zh: "風箏", phonics: "i_e", category: "phonics" },
-            { en: "nine", zh: "九", phonics: "i_e", category: "phonics" },
-            { en: "pine", zh: "松樹", phonics: "i_e", category: "phonics" },
-            { en: "fine", zh: "美好的", phonics: "i_e", category: "phonics" },
-            { en: "time", zh: "時間", phonics: "i_e", category: "phonics" },
-            { en: "ride", zh: "騎乘", phonics: "i_e", category: "phonics" },
-            { en: "line", zh: "線條", phonics: "i_e", category: "phonics" },
-            { en: "smile", zh: "微笑", phonics: "i_e", category: "phonics" },
-            { en: "white", zh: "白色", phonics: "i_e", category: "phonics" },
-
-            // Phonics - ie
-            { en: "pie", zh: "派", phonics: "ie", category: "phonics" },
-            { en: "tie", zh: "領帶", phonics: "ie", category: "phonics" },
-            { en: "die", zh: "死亡", phonics: "ie", category: "phonics" },
-            { en: "lie", zh: "躺下", phonics: "ie", category: "phonics" },
-            { en: "cried", zh: "哭泣過", phonics: "ie", category: "phonics" },
-            { en: "fried", zh: "油炸的", phonics: "ie", category: "phonics" },
-            { en: "dried", zh: "乾燥的", phonics: "ie", category: "phonics" },
-            { en: "untie", zh: "鬆開", phonics: "ie", category: "phonics" },
-            { en: "spied", "zh": "偵查", phonics: "ie", category: "phonics" },
-            { en: "magpie", "zh": "喜鵲", phonics: "ie", category: "phonics" },
-
-            // Phonics - o_e
-            { en: "home", zh: "家", phonics: "o_e", category: "phonics" },
-            { en: "rose", zh: "玫瑰", phonics: "o_e", category: "phonics" },
-            { en: "bone", zh: "骨頭", phonics: "o_e", category: "phonics" },
-            { en: "cone", zh: "圓錐體", phonics: "o_e", category: "phonics" },
-            { en: "hole", zh: "洞穴", phonics: "o_e", category: "phonics" },
-            { en: "nose", zh: "鼻子", phonics: "o_e", category: "phonics" },
-            { en: "rope", zh: "繩子", phonics: "o_e", category: "phonics" },
-            { en: "stone", zh: "石頭", phonics: "o_e", category: "phonics" },
-            { en: "globe", zh: "地球儀", phonics: "o_e", category: "phonics" },
-            { en: "note", zh: "筆記", phonics: "o_e", category: "phonics" },
-
-            // Phonics - oa
-            { en: "boat", zh: "小船", phonics: "oa", category: "phonics" },
-            { en: "coat", zh: "外套", phonics: "oa", category: "phonics" },
-            { en: "soap", zh: "肥皂", phonics: "oa", category: "phonics" },
-            { en: "goat", zh: "山羊", phonics: "oa", category: "phonics" },
-            { en: "road", zh: "道路", phonics: "oa", category: "phonics" },
-            { en: "toad", zh: "蟾蜍", phonics: "oa", category: "phonics" },
-            { en: "coal", zh: "煤炭", phonics: "oa", category: "phonics" },
-            { en: "load", zh: "裝載", phonics: "oa", category: "phonics" },
-            { en: "toast", zh: "吐司", phonics: "oa", category: "phonics" },
-            { en: "float", zh: "漂浮", phonics: "oa", category: "phonics" },
-
-            // Phonics - ow
-            { en: "snow", zh: "積雪", phonics: "ow", category: "phonics" },
-            { en: "yellow", zh: "黃色", phonics: "ow", category: "phonics" },
-            { en: "window", zh: "窗戶", phonics: "ow", category: "phonics" },
-            { en: "row", zh: "划船", phonics: "ow", category: "phonics" },
-            { en: "slow", zh: "緩慢的", phonics: "ow", category: "phonics" },
-            { en: "blow", zh: "吹氣", phonics: "ow", category: "phonics" },
-            { en: "grow", zh: "生長", phonics: "ow", category: "phonics" },
-            { en: "show", zh: "展示", phonics: "ow", category: "phonics" },
-            { en: "bowl", zh: "碗", phonics: "ow", category: "phonics" },
-            { en: "arrow", zh: "箭頭", phonics: "ow", category: "phonics" },
-
-            // Phonics - u_e
-            { en: "cube", zh: "立方體", phonics: "u_e", category: "phonics" },
-            { en: "flute", zh: "長笛", phonics: "u_e", category: "phonics" },
-            { en: "cute", zh: "可愛的", phonics: "u_e", category: "phonics" },
-            { en: "mule", zh: "騾子", phonics: "u_e", category: "phonics" },
-            { en: "tube", zh: "管子", phonics: "u_e", category: "phonics" },
-            { en: "tune", zh: "曲調", phonics: "u_e", category: "phonics" },
-            { en: "june", zh: "六月", phonics: "u_e", category: "phonics" },
-            { en: "huge", zh: "巨大的", phonics: "u_e", category: "phonics" },
-            { en: "use", zh: "使用", phonics: "u_e", category: "phonics" },
-            { en: "dune", zh: "沙丘", phonics: "u_e", category: "phonics" },
-
-            // Phonics - ue
-            { en: "blue", zh: "藍色", phonics: "ue", category: "phonics" },
-            { en: "glue", zh: "膠水", phonics: "ue", category: "phonics" },
-            { en: "clue", zh: "線索", phonics: "ue", category: "phonics" },
-            { en: "true", zh: "真實的", phonics: "ue", category: "phonics" },
-            { en: "due", zh: "到期的", phonics: "ue", category: "phonics" },
-            { en: "hue", zh: "色調", phonics: "ue", category: "phonics" },
-            { en: "sue", zh: "控告", phonics: "ue", category: "phonics" },
-            { en: "rescue", zh: "救援", phonics: "ue", category: "phonics" },
-            { en: "argue", zh: "爭論", phonics: "ue", category: "phonics" },
-            { en: "tissue", zh: "面紙", phonics: "ue", category: "phonics" },
-
-            // Phonics - ui
-            { en: "fruit", zh: "水果", phonics: "ui", category: "phonics" },
-            { en: "suit", zh: "西裝", phonics: "ui", category: "phonics" },
-            { en: "juice", zh: "果汁", phonics: "ui", category: "phonics" },
-            { en: "cruise", zh: "郵輪巡航", phonics: "ui", category: "phonics" },
-            { en: "bruise", zh: "瘀青", phonics: "ui", category: "phonics" },
-            { en: "suitcases", zh: "行李箱", phonics: "ui", category: "phonics" },
-            { en: "recruit", zh: "招募", phonics: "ui", category: "phonics" },
-            { en: "pursuit", zh: "追求", phonics: "ui", category: "phonics" },
-            { en: "juicy", zh: "多汁的", phonics: "ui", category: "phonics" },
-            { en: "suitor", zh: "求婚者", phonics: "ui", category: "phonics" }
-        ];
+        {
+                "en": "read / reading",
+                "zh": "(正在)閱讀",
+                "category": "school"
+        },
+        {
+                "en": "count / counting",
+                "zh": "計算",
+                "category": "school"
+        },
+        {
+                "en": "color / coloring",
+                "zh": "著色",
+                "category": "school"
+        },
+        {
+                "en": "listen / listening",
+                "zh": "聽",
+                "category": "school"
+        },
+        {
+                "en": "draw / drawing",
+                "zh": "畫圖",
+                "category": "school"
+        },
+        {
+                "en": "talk / talking",
+                "zh": "說話",
+                "category": "school"
+        },
+        {
+                "en": "paint / painting",
+                "zh": "繪畫",
+                "category": "school"
+        },
+        {
+                "en": "cut / cutting",
+                "zh": "剪",
+                "category": "school"
+        },
+        {
+                "en": "use / using",
+                "zh": "使用",
+                "category": "school"
+        },
+        {
+                "en": "erase / erasing",
+                "zh": "擦",
+                "category": "school"
+        },
+        {
+                "en": "write / writing",
+                "zh": "寫",
+                "category": "school"
+        },
+        {
+                "en": "glue / gluing",
+                "zh": "黏貼",
+                "category": "school"
+        },
+        {
+                "en": "a notebook",
+                "zh": "筆記本",
+                "category": "school"
+        },
+        {
+                "en": "glue",
+                "zh": "膠水",
+                "phonics": "gl",
+                "category": "phonics"
+        },
+        {
+                "en": "paper",
+                "zh": "紙張",
+                "category": "school"
+        },
+        {
+                "en": "scissors",
+                "zh": "剪刀",
+                "category": "school"
+        },
+        {
+                "en": "a crayon",
+                "zh": "蠟筆",
+                "category": "school"
+        },
+        {
+                "en": "a marker",
+                "zh": "彩色筆",
+                "category": "school"
+        },
+        {
+                "en": "shape",
+                "zh": "形狀",
+                "category": "school"
+        },
+        {
+                "en": "a paintbrush",
+                "zh": "畫筆",
+                "category": "school"
+        },
+        {
+                "en": "rainy",
+                "zh": "下雨的",
+                "category": "daily"
+        },
+        {
+                "en": "sunny",
+                "zh": "晴天的",
+                "category": "daily"
+        },
+        {
+                "en": "cloudy",
+                "zh": "陰天的",
+                "category": "daily"
+        },
+        {
+                "en": "windy",
+                "zh": "有風的",
+                "category": "daily"
+        },
+        {
+                "en": "snowy",
+                "zh": "下雪的",
+                "category": "daily"
+        },
+        {
+                "en": "hot",
+                "zh": "熱的",
+                "category": "general"
+        },
+        {
+                "en": "cold",
+                "zh": "冷的",
+                "category": "general"
+        },
+        {
+                "en": "warm",
+                "zh": "溫暖的",
+                "category": "general"
+        },
+        {
+                "en": "weather",
+                "zh": "天氣",
+                "category": "general"
+        },
+        {
+                "en": "spring",
+                "zh": "春天",
+                "phonics": "spr",
+                "category": "phonics"
+        },
+        {
+                "en": "summer",
+                "zh": "夏天",
+                "category": "daily"
+        },
+        {
+                "en": "fall / autumn",
+                "zh": "秋天",
+                "category": "daily"
+        },
+        {
+                "en": "winter",
+                "zh": "冬天",
+                "category": "daily"
+        },
+        {
+                "en": "boots",
+                "zh": "靴子",
+                "category": "general"
+        },
+        {
+                "en": "coat",
+                "zh": "大衣",
+                "category": "general"
+        },
+        {
+                "en": "sweater",
+                "zh": "毛衣",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "jeans",
+                "zh": "牛仔褲",
+                "category": "general"
+        },
+        {
+                "en": "sneakers",
+                "zh": "球鞋",
+                "category": "general"
+        },
+        {
+                "en": "bathing suits",
+                "zh": "泳裝",
+                "category": "general"
+        },
+        {
+                "en": "raincoat",
+                "zh": "雨衣",
+                "category": "general"
+        },
+        {
+                "en": "shorts",
+                "zh": "短褲",
+                "category": "general"
+        },
+        {
+                "en": "Monday",
+                "zh": "星期一",
+                "category": "daily"
+        },
+        {
+                "en": "Tuesday",
+                "zh": "星期二",
+                "category": "daily"
+        },
+        {
+                "en": "Wednesday",
+                "zh": "星期三",
+                "category": "daily"
+        },
+        {
+                "en": "Thursday",
+                "zh": "星期四",
+                "category": "daily"
+        },
+        {
+                "en": "Friday",
+                "zh": "星期五",
+                "category": "daily"
+        },
+        {
+                "en": "Saturday",
+                "zh": "星期六",
+                "category": "daily"
+        },
+        {
+                "en": "Sunday",
+                "zh": "星期日",
+                "category": "daily"
+        },
+        {
+                "en": "twenty-one - fifty",
+                "zh": "二十一～五十",
+                "category": "numbers"
+        },
+        {
+                "en": "thirty",
+                "zh": "三十",
+                "category": "numbers"
+        },
+        {
+                "en": "forty",
+                "zh": "四十",
+                "category": "numbers"
+        },
+        {
+                "en": "fifty",
+                "zh": "五十",
+                "category": "numbers"
+        },
+        {
+                "en": "every",
+                "zh": "每一",
+                "category": "adjectives"
+        },
+        {
+                "en": "fat",
+                "zh": "胖的",
+                "category": "adjectives"
+        },
+        {
+                "en": "favorite",
+                "zh": "最喜愛的",
+                "category": "adjectives"
+        },
+        {
+                "en": "great",
+                "zh": "好的；了不起的；大的",
+                "category": "adjectives"
+        },
+        {
+                "en": "thin",
+                "zh": "瘦的",
+                "category": "adjectives"
+        },
+        {
+                "en": "now",
+                "zh": "現在",
+                "category": "adverbs"
+        },
+        {
+                "en": "there",
+                "zh": "那裡",
+                "category": "adverbs"
+        },
+        {
+                "en": "too",
+                "zh": "也；太",
+                "category": "adverbs"
+        },
+        {
+                "en": "very",
+                "zh": "非常",
+                "category": "adverbs"
+        },
+        {
+                "en": "ant",
+                "zh": "螞蟻",
+                "category": "animals"
+        },
+        {
+                "en": "bee",
+                "zh": "蜜蜂",
+                "category": "animals"
+        },
+        {
+                "en": "chicken",
+                "zh": "雞",
+                "category": "animals"
+        },
+        {
+                "en": "goat",
+                "zh": "山羊",
+                "category": "animals"
+        },
+        {
+                "en": "hen",
+                "zh": "母雞",
+                "category": "animals"
+        },
+        {
+                "en": "zebra",
+                "zh": "斑馬",
+                "category": "animals"
+        },
+        {
+                "en": "blackboard",
+                "zh": "黑板",
+                "category": "classroom"
+        },
+        {
+                "en": "board",
+                "zh": "板子",
+                "category": "classroom"
+        },
+        {
+                "en": "ceiling",
+                "zh": "天花板",
+                "category": "classroom"
+        },
+        {
+                "en": "class",
+                "zh": "班級/課堂",
+                "phonics": "cl",
+                "category": "phonics"
+        },
+        {
+                "en": "classroom",
+                "zh": "教室",
+                "category": "classroom"
+        },
+        {
+                "en": "computer",
+                "zh": "電腦",
+                "category": "classroom"
+        },
+        {
+                "en": "eraser",
+                "zh": "橡皮擦",
+                "category": "classroom"
+        },
+        {
+                "en": "map",
+                "zh": "地圖",
+                "category": "classroom"
+        },
+        {
+                "en": "page",
+                "zh": "頁（數）",
+                "category": "classroom"
+        },
+        {
+                "en": "pencil case",
+                "zh": "鉛筆盒",
+                "category": "classroom"
+        },
+        {
+                "en": "poster",
+                "zh": "海報",
+                "category": "classroom"
+        },
+        {
+                "en": "rubber",
+                "zh": "橡皮擦",
+                "category": "classroom"
+        },
+        {
+                "en": "whiteboard",
+                "zh": "白板",
+                "category": "classroom"
+        },
+        {
+                "en": "back",
+                "zh": "背部",
+                "category": "body"
+        },
+        {
+                "en": "body",
+                "zh": "身體",
+                "category": "body"
+        },
+        {
+                "en": "face",
+                "zh": "臉",
+                "category": "body"
+        },
+        {
+                "en": "finger",
+                "zh": "手指",
+                "category": "body"
+        },
+        {
+                "en": "foot (feet)",
+                "zh": "腳（複數）",
+                "category": "body"
+        },
+        {
+                "en": "knee",
+                "zh": "膝蓋",
+                "category": "body"
+        },
+        {
+                "en": "neck",
+                "zh": "脖子",
+                "category": "body"
+        },
+        {
+                "en": "shoulder",
+                "zh": "肩膀",
+                "category": "body"
+        },
+        {
+                "en": "toe",
+                "zh": "腳趾",
+                "category": "body"
+        },
+        {
+                "en": "tooth (teeth)",
+                "zh": "牙齒（複數）",
+                "category": "body"
+        },
+        {
+                "en": "boot (s)",
+                "zh": "靴子",
+                "category": "clothes"
+        },
+        {
+                "en": "dress",
+                "zh": "洋裝",
+                "phonics": "dr",
+                "category": "phonics"
+        },
+        {
+                "en": "glasses",
+                "zh": "眼鏡",
+                "category": "clothes"
+        },
+        {
+                "en": "glove (s)",
+                "zh": "手套",
+                "category": "clothes"
+        },
+        {
+                "en": "hat",
+                "zh": "帽子",
+                "category": "clothes"
+        },
+        {
+                "en": "jacket",
+                "zh": "夾克",
+                "category": "clothes"
+        },
+        {
+                "en": "pants",
+                "zh": "長褲",
+                "category": "clothes"
+        },
+        {
+                "en": "tie",
+                "zh": "領帶",
+                "category": "clothes"
+        },
+        {
+                "en": "day",
+                "zh": "天",
+                "category": "days"
+        },
+        {
+                "en": "beef",
+                "zh": "牛肉",
+                "category": "food"
+        },
+        {
+                "en": "carrot",
+                "zh": "紅蘿蔔",
+                "category": "food"
+        },
+        {
+                "en": "cheese",
+                "zh": "起司",
+                "category": "food"
+        },
+        {
+                "en": "cherry",
+                "zh": "櫻桃",
+                "category": "food"
+        },
+        {
+                "en": "chocolate",
+                "zh": "巧克力",
+                "category": "food"
+        },
+        {
+                "en": "coffee",
+                "zh": "咖啡",
+                "category": "food"
+        },
+        {
+                "en": "cola",
+                "zh": "可樂",
+                "category": "food"
+        },
+        {
+                "en": "corn",
+                "zh": "玉米",
+                "category": "food"
+        },
+        {
+                "en": "drink",
+                "zh": "飲料",
+                "category": "food"
+        },
+        {
+                "en": "green pepper",
+                "zh": "青椒",
+                "category": "food"
+        },
+        {
+                "en": "ham",
+                "zh": "火腿",
+                "category": "food"
+        },
+        {
+                "en": "hamburger (burger)",
+                "zh": "漢堡",
+                "category": "food"
+        },
+        {
+                "en": "hot dog",
+                "zh": "熱狗",
+                "category": "food"
+        },
+        {
+                "en": "lettuce",
+                "zh": "萵苣",
+                "category": "food"
+        },
+        {
+                "en": "mango",
+                "zh": "芒果",
+                "category": "food"
+        },
+        {
+                "en": "milk",
+                "zh": "牛奶",
+                "category": "food"
+        },
+        {
+                "en": "noodle (s)",
+                "zh": "麵",
+                "category": "food"
+        },
+        {
+                "en": "onion",
+                "zh": "洋蔥",
+                "category": "food"
+        },
+        {
+                "en": "pea",
+                "zh": "豌豆",
+                "category": "food"
+        },
+        {
+                "en": "pie",
+                "zh": "派",
+                "category": "food"
+        },
+        {
+                "en": "pizza",
+                "zh": "披薩",
+                "category": "food"
+        },
+        {
+                "en": "potato",
+                "zh": "馬鈴薯",
+                "category": "food"
+        },
+        {
+                "en": "rice",
+                "zh": "米；飯",
+                "category": "food"
+        },
+        {
+                "en": "sandwich",
+                "zh": "三明治",
+                "category": "food"
+        },
+        {
+                "en": "soda",
+                "zh": "汽水",
+                "category": "food"
+        },
+        {
+                "en": "soup",
+                "zh": "湯",
+                "category": "food"
+        },
+        {
+                "en": "steak",
+                "zh": "牛排",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "strawberry",
+                "zh": "草莓",
+                "category": "food"
+        },
+        {
+                "en": "tea",
+                "zh": "茶",
+                "category": "food"
+        },
+        {
+                "en": "toast",
+                "zh": "吐司",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "tomato",
+                "zh": "番茄",
+                "category": "food"
+        },
+        {
+                "en": "water",
+                "zh": "水",
+                "category": "food"
+        },
+        {
+                "en": "watermelon",
+                "zh": "西瓜",
+                "category": "food"
+        },
+        {
+                "en": "bowl",
+                "zh": "碗",
+                "category": "house"
+        },
+        {
+                "en": "brush",
+                "zh": "刷子/梳子",
+                "phonics": "br",
+                "category": "phonics"
+        },
+        {
+                "en": "comb",
+                "zh": "梳子",
+                "category": "house"
+        },
+        {
+                "en": "fork",
+                "zh": "叉子",
+                "category": "house"
+        },
+        {
+                "en": "knife",
+                "zh": "刀子",
+                "category": "house"
+        },
+        {
+                "en": "plate",
+                "zh": "盤子",
+                "phonics": "pl",
+                "category": "phonics"
+        },
+        {
+                "en": "room",
+                "zh": "房間",
+                "category": "house"
+        },
+        {
+                "en": "spoon",
+                "zh": "湯匙",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "doll",
+                "zh": "洋娃娃",
+                "category": "leisure"
+        },
+        {
+                "en": "drum (s)",
+                "zh": "鼓",
+                "category": "leisure"
+        },
+        {
+                "en": "fishing",
+                "zh": "釣魚",
+                "category": "leisure"
+        },
+        {
+                "en": "golf",
+                "zh": "高爾夫球",
+                "category": "leisure"
+        },
+        {
+                "en": "guitar",
+                "zh": "吉他",
+                "category": "leisure"
+        },
+        {
+                "en": "kite",
+                "zh": "風箏",
+                "category": "leisure"
+        },
+        {
+                "en": "piano",
+                "zh": "鋼琴",
+                "category": "leisure"
+        },
+        {
+                "en": "robot",
+                "zh": "機器人",
+                "category": "leisure"
+        },
+        {
+                "en": "toy",
+                "zh": "玩具",
+                "category": "leisure"
+        },
+        {
+                "en": "trumpet",
+                "zh": "小喇叭",
+                "category": "leisure"
+        },
+        {
+                "en": "violin",
+                "zh": "小提琴",
+                "category": "leisure"
+        },
+        {
+                "en": "volleyball",
+                "zh": "排球",
+                "category": "leisure"
+        },
+        {
+                "en": "January",
+                "zh": "一月",
+                "category": "months"
+        },
+        {
+                "en": "February",
+                "zh": "二月",
+                "category": "months"
+        },
+        {
+                "en": "March",
+                "zh": "三月",
+                "category": "months"
+        },
+        {
+                "en": "April",
+                "zh": "四月",
+                "category": "months"
+        },
+        {
+                "en": "May",
+                "zh": "五月",
+                "category": "months"
+        },
+        {
+                "en": "June",
+                "zh": "六月",
+                "category": "months"
+        },
+        {
+                "en": "July",
+                "zh": "七月",
+                "category": "months"
+        },
+        {
+                "en": "August",
+                "zh": "八月",
+                "category": "months"
+        },
+        {
+                "en": "September",
+                "zh": "九月",
+                "category": "months"
+        },
+        {
+                "en": "October",
+                "zh": "十月",
+                "category": "months"
+        },
+        {
+                "en": "November",
+                "zh": "十一月",
+                "category": "months"
+        },
+        {
+                "en": "December",
+                "zh": "十二月",
+                "category": "months"
+        },
+        {
+                "en": "month",
+                "zh": "月（份）",
+                "category": "months"
+        },
+        {
+                "en": "baby",
+                "zh": "嬰兒",
+                "category": "people"
+        },
+        {
+                "en": "brother",
+                "zh": "兄弟",
+                "category": "people"
+        },
+        {
+                "en": "child",
+                "zh": "小孩",
+                "category": "people"
+        },
+        {
+                "en": "children",
+                "zh": "小孩（複數）",
+                "category": "people"
+        },
+        {
+                "en": "father",
+                "zh": "爸爸",
+                "category": "people"
+        },
+        {
+                "en": "friend",
+                "zh": "朋友",
+                "category": "people"
+        },
+        {
+                "en": "mother",
+                "zh": "媽媽",
+                "category": "people"
+        },
+        {
+                "en": "person",
+                "zh": "人",
+                "category": "people"
+        },
+        {
+                "en": "sister",
+                "zh": "姊妹",
+                "category": "people"
+        },
+        {
+                "en": "behind",
+                "zh": "在…後面",
+                "category": "prepositions"
+        },
+        {
+                "en": "between",
+                "zh": "在…兩者之間",
+                "category": "prepositions"
+        },
+        {
+                "en": "from",
+                "zh": "來自；從",
+                "category": "prepositions"
+        },
+        {
+                "en": "in front of",
+                "zh": "在…前面",
+                "category": "prepositions"
+        },
+        {
+                "en": "next to",
+                "zh": "在…旁邊",
+                "category": "prepositions"
+        },
+        {
+                "en": "to",
+                "zh": "向；往；到",
+                "category": "prepositions"
+        },
+        {
+                "en": "autumn / fall",
+                "zh": "秋天",
+                "category": "seasons"
+        },
+        {
+                "en": "season",
+                "zh": "季節",
+                "category": "seasons"
+        },
+        {
+                "en": "airplane (plane)",
+                "zh": "飛機",
+                "category": "transport"
+        },
+        {
+                "en": "helicopter",
+                "zh": "直升機",
+                "category": "transport"
+        },
+        {
+                "en": "motorcycle (motorbike)",
+                "zh": "機車",
+                "category": "transport"
+        },
+        {
+                "en": "ship",
+                "zh": "船",
+                "category": "transport"
+        },
+        {
+                "en": "block",
+                "zh": "積木",
+                "phonics": "bl",
+                "category": "phonics"
+        },
+        {
+                "en": "blouse",
+                "zh": "女襯衫",
+                "phonics": "bl",
+                "category": "phonics"
+        },
+        {
+                "en": "blow",
+                "zh": "吹",
+                "phonics": "bl",
+                "category": "phonics"
+        },
+        {
+                "en": "blue",
+                "zh": "藍色",
+                "phonics": "bl",
+                "category": "phonics"
+        },
+        {
+                "en": "blanket",
+                "zh": "毛毯",
+                "phonics": "bl",
+                "category": "phonics"
+        },
+        {
+                "en": "plug",
+                "zh": "插頭",
+                "phonics": "pl",
+                "category": "phonics"
+        },
+        {
+                "en": "plane",
+                "zh": "飛機",
+                "phonics": "pl",
+                "category": "phonics"
+        },
+        {
+                "en": "plant",
+                "zh": "植物",
+                "phonics": "pl",
+                "category": "phonics"
+        },
+        {
+                "en": "clock",
+                "zh": "時鐘",
+                "phonics": "cl",
+                "category": "phonics"
+        },
+        {
+                "en": "clap",
+                "zh": "拍手",
+                "phonics": "cl",
+                "category": "phonics"
+        },
+        {
+                "en": "cloud",
+                "zh": "雲",
+                "phonics": "cl",
+                "category": "phonics"
+        },
+        {
+                "en": "globe",
+                "zh": "地球儀",
+                "phonics": "gl",
+                "category": "phonics"
+        },
+        {
+                "en": "glad",
+                "zh": "高興的",
+                "phonics": "gl",
+                "category": "phonics"
+        },
+        {
+                "en": "glass",
+                "zh": "玻璃杯",
+                "phonics": "gl",
+                "category": "phonics"
+        },
+        {
+                "en": "glow",
+                "zh": "發光",
+                "phonics": "gl",
+                "category": "phonics"
+        },
+        {
+                "en": "fly",
+                "zh": "飛",
+                "phonics": "fl",
+                "category": "phonics"
+        },
+        {
+                "en": "flag",
+                "zh": "旗子",
+                "phonics": "fl",
+                "category": "phonics"
+        },
+        {
+                "en": "flower",
+                "zh": "花朵",
+                "phonics": "fl",
+                "category": "phonics"
+        },
+        {
+                "en": "floor",
+                "zh": "地板",
+                "phonics": "fl",
+                "category": "phonics"
+        },
+        {
+                "en": "flute",
+                "zh": "長笛",
+                "phonics": "fl",
+                "category": "phonics"
+        },
+        {
+                "en": "bread",
+                "zh": "麵包",
+                "phonics": "br",
+                "category": "phonics"
+        },
+        {
+                "en": "brown",
+                "zh": "棕色",
+                "phonics": "br",
+                "category": "phonics"
+        },
+        {
+                "en": "brick",
+                "zh": "磚塊",
+                "phonics": "br",
+                "category": "phonics"
+        },
+        {
+                "en": "broom",
+                "zh": "掃帚",
+                "phonics": "br",
+                "category": "phonics"
+        },
+        {
+                "en": "prince",
+                "zh": "王子",
+                "phonics": "pr",
+                "category": "phonics"
+        },
+        {
+                "en": "price",
+                "zh": "價格",
+                "phonics": "pr",
+                "category": "phonics"
+        },
+        {
+                "en": "press",
+                "zh": "按壓",
+                "phonics": "pr",
+                "category": "phonics"
+        },
+        {
+                "en": "prize",
+                "zh": "獎品",
+                "phonics": "pr",
+                "category": "phonics"
+        },
+        {
+                "en": "cry",
+                "zh": "哭泣",
+                "phonics": "cr",
+                "category": "phonics"
+        },
+        {
+                "en": "crab",
+                "zh": "螃蟹",
+                "phonics": "cr",
+                "category": "phonics"
+        },
+        {
+                "en": "cream",
+                "zh": "奶油",
+                "phonics": "cr",
+                "category": "phonics"
+        },
+        {
+                "en": "crow",
+                "zh": "烏鴉",
+                "phonics": "cr",
+                "category": "phonics"
+        },
+        {
+                "en": "crown",
+                "zh": "皇冠",
+                "phonics": "cr",
+                "category": "phonics"
+        },
+        {
+                "en": "green",
+                "zh": "綠色",
+                "phonics": "gr",
+                "category": "phonics"
+        },
+        {
+                "en": "grass",
+                "zh": "草地",
+                "phonics": "gr",
+                "category": "phonics"
+        },
+        {
+                "en": "gray",
+                "zh": "灰色",
+                "phonics": "gr",
+                "category": "phonics"
+        },
+        {
+                "en": "grapes",
+                "zh": "葡萄",
+                "phonics": "gr",
+                "category": "phonics"
+        },
+        {
+                "en": "drum",
+                "zh": "鼓",
+                "phonics": "dr",
+                "category": "phonics"
+        },
+        {
+                "en": "dream",
+                "zh": "做夢/夢想",
+                "phonics": "dr",
+                "category": "phonics"
+        },
+        {
+                "en": "drive",
+                "zh": "開車",
+                "phonics": "dr",
+                "category": "phonics"
+        },
+        {
+                "en": "tree",
+                "zh": "樹",
+                "phonics": "tr",
+                "category": "phonics"
+        },
+        {
+                "en": "truck",
+                "zh": "卡車",
+                "phonics": "tr",
+                "category": "phonics"
+        },
+        {
+                "en": "trash",
+                "zh": "垃圾",
+                "phonics": "tr",
+                "category": "phonics"
+        },
+        {
+                "en": "train",
+                "zh": "火車",
+                "phonics": "tr",
+                "category": "phonics"
+        },
+        {
+                "en": "fruit",
+                "zh": "水果",
+                "phonics": "fr",
+                "category": "phonics"
+        },
+        {
+                "en": "frog",
+                "zh": "青蛙",
+                "phonics": "fr",
+                "category": "phonics"
+        },
+        {
+                "en": "fries",
+                "zh": "薯條",
+                "phonics": "fr",
+                "category": "phonics"
+        },
+        {
+                "en": "friends",
+                "zh": "朋友",
+                "phonics": "fr",
+                "category": "phonics"
+        },
+        {
+                "en": "free",
+                "zh": "自由/免費",
+                "phonics": "fr",
+                "category": "phonics"
+        },
+        {
+                "en": "small",
+                "zh": "小的",
+                "phonics": "sm",
+                "category": "phonics"
+        },
+        {
+                "en": "smoke",
+                "zh": "煙",
+                "phonics": "sm",
+                "category": "phonics"
+        },
+        {
+                "en": "smell",
+                "zh": "聞",
+                "phonics": "sm",
+                "category": "phonics"
+        },
+        {
+                "en": "smile",
+                "zh": "微笑",
+                "phonics": "sm",
+                "category": "phonics"
+        },
+        {
+                "en": "snow",
+                "zh": "雪",
+                "phonics": "sn",
+                "category": "phonics"
+        },
+        {
+                "en": "snack",
+                "zh": "點心",
+                "phonics": "sn",
+                "category": "phonics"
+        },
+        {
+                "en": "snake",
+                "zh": "蛇",
+                "phonics": "sn",
+                "category": "phonics"
+        },
+        {
+                "en": "sneeze",
+                "zh": "打噴嚏",
+                "phonics": "sn",
+                "category": "phonics"
+        },
+        {
+                "en": "snail",
+                "zh": "蝸牛",
+                "phonics": "sn",
+                "category": "phonics"
+        },
+        {
+                "en": "sleep",
+                "zh": "睡覺",
+                "phonics": "sl",
+                "category": "phonics"
+        },
+        {
+                "en": "slide",
+                "zh": "溜滑梯",
+                "phonics": "sl",
+                "category": "phonics"
+        },
+        {
+                "en": "slow",
+                "zh": "慢的",
+                "phonics": "sl",
+                "category": "phonics"
+        },
+        {
+                "en": "sled",
+                "zh": "雪橇",
+                "phonics": "sl",
+                "category": "phonics"
+        },
+        {
+                "en": "swim",
+                "zh": "游泳",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "swan",
+                "zh": "天鵝",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "swing",
+                "zh": "鞦韆",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "swimming",
+                "zh": "游泳中",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "sweep",
+                "zh": "掃地",
+                "phonics": "sw",
+                "category": "phonics"
+        },
+        {
+                "en": "space",
+                "zh": "太空",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "spot",
+                "zh": "斑點",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "spider",
+                "zh": "蜘蛛",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "stop",
+                "zh": "停止",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "star",
+                "zh": "星星",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "stand",
+                "zh": "站立",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "scare",
+                "zh": "害怕",
+                "phonics": "sc",
+                "category": "phonics"
+        },
+        {
+                "en": "scarf",
+                "zh": "圍巾",
+                "phonics": "sc",
+                "category": "phonics"
+        },
+        {
+                "en": "score",
+                "zh": "得分",
+                "phonics": "sc",
+                "category": "phonics"
+        },
+        {
+                "en": "scale",
+                "zh": "磅秤",
+                "phonics": "sc",
+                "category": "phonics"
+        },
+        {
+                "en": "skirt",
+                "zh": "裙子",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "sky",
+                "zh": "天空",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "skates",
+                "zh": "溜冰鞋",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "skin",
+                "zh": "皮膚",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "gasp",
+                "zh": "喘氣/倒抽一口氣",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "grasp",
+                "zh": "抓緊",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "wasp",
+                "zh": "黃蜂",
+                "phonics": "sp",
+                "category": "phonics"
+        },
+        {
+                "en": "test",
+                "zh": "測驗/考試",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "list",
+                "zh": "清單",
+                "phonics": "st",
+                "category": "phonics"
+        },
+        {
+                "en": "desk",
+                "zh": "書桌",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "mask",
+                "zh": "面具/口罩",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "ask",
+                "zh": "詢問",
+                "phonics": "sk",
+                "category": "phonics"
+        },
+        {
+                "en": "screen",
+                "zh": "螢幕",
+                "phonics": "scr",
+                "category": "phonics"
+        },
+        {
+                "en": "scream",
+                "zh": "尖叫",
+                "phonics": "scr",
+                "category": "phonics"
+        },
+        {
+                "en": "scrub",
+                "zh": "刷洗",
+                "phonics": "scr",
+                "category": "phonics"
+        },
+        {
+                "en": "spray",
+                "zh": "噴霧/噴灑",
+                "phonics": "spr",
+                "category": "phonics"
+        },
+        {
+                "en": "sprout",
+                "zh": "發芽/豆芽",
+                "phonics": "spr",
+                "category": "phonics"
+        },
+        {
+                "en": "street",
+                "zh": "街道",
+                "phonics": "str",
+                "category": "phonics"
+        },
+        {
+                "en": "stream",
+                "zh": "小溪",
+                "phonics": "str",
+                "category": "phonics"
+        },
+        {
+                "en": "strong",
+                "zh": "強壯的",
+                "phonics": "str",
+                "category": "phonics"
+        },
+        {
+                "en": "king",
+                "zh": "國王",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "sing",
+                "zh": "唱歌",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "ring",
+                "zh": "戒指",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "long",
+                "zh": "長的",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "hang",
+                "zh": "吊掛",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "song",
+                "zh": "歌曲",
+                "phonics": "ng",
+                "category": "phonics"
+        },
+        {
+                "en": "sheep",
+                "zh": "綿羊",
+                "phonics": "sh",
+                "category": "phonics"
+        },
+        {
+                "en": "dish",
+                "zh": "盤子/菜餚",
+                "phonics": "sh",
+                "category": "phonics"
+        }
+];
 
         /* 小學一年級核心文法 100 題題庫 */
         const GRAMMAR_QUESTIONS = [
-            { id: "g1", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It _____ (is / are) a pen.", fullSentence: "It is a pen.", zh: "這是一支鋼筆。", options: ["is", "are"], answer: "is", tip: "單數主詞 It 搭配 Be動詞 is。" },
-            { id: "g2", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It is _____ (a / an) apple.", fullSentence: "It is an apple.", zh: "這是一個蘋果。", options: ["a", "an"], answer: "an", tip: "apple 開頭發音是母音，前面要用 an 喔！" },
-            { id: "g3", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This _____ (is / are) a cat.", fullSentence: "This is a cat.", zh: "這是一隻貓。", options: ["is", "are"], answer: "is", tip: "近距離單數指示代名詞 This 搭配 is。" },
-            { id: "g4", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "This is _____ (a / an) orange.", fullSentence: "This is an orange.", zh: "這是一個柳橙。", options: ["a", "an"], answer: "an", tip: "orange 為母音開頭的名詞，要使用 an。" },
-            { id: "g5", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "That _____ (is / are) a dog.", fullSentence: "That is a dog.", zh: "那是一隻狗。", options: ["is", "are"], answer: "is", tip: "遠距離單數指示代名詞 That 搭配 is。" },
-            { id: "g6", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "That is _____ (a / an) elephant.", fullSentence: "That is an elephant.", zh: "那是一頭大象。", options: ["a", "an"], answer: "an", tip: "elephant 字首為母音，前面加 an。" },
-            { id: "g7", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It _____ (is / are) a red book.", fullSentence: "It is a red book.", zh: "這是一本紅色的書。", options: ["is", "are"], answer: "is", tip: "單數物品用 is。" },
-            { id: "g8", topicTitle: "Be動詞與單複數 (Is + a/an)", sentencePrompt: "It is _____ (a / an) egg.", fullSentence: "It is an egg.", zh: "這是一個蛋。", options: ["a", "an"], answer: "an", tip: "egg 為母音發音開頭，使用 an。" },
-            { id: "g16", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They _____ (is / are) pens.", fullSentence: "They are pens.", zh: "它們是鋼筆。", options: ["is", "are"], answer: "are", tip: "They 是複數，動詞要搭配 are！" },
-            { id: "g17", topicTitle: "Be動詞與單複數 (Are + 複數名詞)", sentencePrompt: "They are _____ (apple / apples).", fullSentence: "They are apples.", zh: "它們是蘋果。", options: ["apple", "apples"], answer: "apples", tip: "複數句型名詞字尾要記得加上 -s！" },
-            { id: "g31", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) am a student.", fullSentence: "I am a student.", zh: "我是一個學生。", options: ["I", "My"], answer: "I", tip: "主格『我』用 I，且搭配 am。" },
-            { id: "g32", topicTitle: "代名詞與所有格 (I / My)", sentencePrompt: "_____ (I / My) bag is yellow.", fullSentence: "My bag is yellow.", zh: "我的書包是黃色的。", options: ["I", "My"], answer: "My", tip: "修飾名詞 bag（書包）要用所有格『我的』My。" },
-            { id: "g39", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) is a doctor.", fullSentence: "He is a doctor.", zh: "他是一位醫生。", options: ["He", "His"], answer: "He", tip: "主詞『他』要用 He。" },
-            { id: "g40", topicTitle: "代名詞與所有格 (He / His)", sentencePrompt: "_____ (He / His) name is Danny.", fullSentence: "His name is Danny.", zh: "他的名字是 Danny。", options: ["He", "His"], answer: "His", tip: "『他的』名字，使用所有格 His。" },
-            { id: "g61", topicTitle: "特殊疑問句 (What)", sentencePrompt: "_____ (What / Who) is this? → It is a yellow kite.", fullSentence: "What is this? It is a yellow kite.", zh: "這是什麼？→ 這是一隻黃色的風箏。", options: ["What", "Who"], answer: "What", tip: "詢問物品是什麼，疑問詞要用 What。" },
-            { id: "g69", topicTitle: "特殊疑問句 (Who)", sentencePrompt: "_____ (Who / What) is she? → She is my mother.", fullSentence: "Who is she? She is my mother.", zh: "她是誰？→ 她是我媽媽。", options: ["Who", "What"], answer: "Who", tip: "詢問『人』是誰，疑問詞要用 Who。" },
-            { id: "g77", topicTitle: "特殊疑問句 (How Many)", sentencePrompt: "How many books are there? → There _____ (is / are) three books.", fullSentence: "How many books are there? There are three books.", zh: "這裡有多少本書？→ 這裡有三本書。", options: ["is", "are"], answer: "are", tip: "three books 為複數，用 There are。" }
-        ];
+        {
+                "id": "ow_1",
+                "topicTitle": "Unit 1: Fun in Class 現在進行式問答",
+                "sentencePrompt": "What are you doing? → I _____ (am drawing / draw).",
+                "fullSentence": "What are you doing? I am drawing.",
+                "zh": "你正在做什麼？ - 我正在畫圖。",
+                "options": [
+                        "am drawing",
+                        "draw"
+                ],
+                "answer": "am drawing",
+                "tip": "詢問正在做什麼 (What are you doing?)，回答要用 am/is/are + V-ing（現在進行式）。"
+        },
+        {
+                "id": "ow_2",
+                "topicTitle": "Unit 1: Fun in Class 現在進行式問答",
+                "sentencePrompt": "What are you doing? → We _____ (are writing / is writing).",
+                "fullSentence": "What are you doing? We are writing.",
+                "zh": "你們正在做什麼？ - 我們正在寫字。",
+                "options": [
+                        "are writing",
+                        "is writing"
+                ],
+                "answer": "are writing",
+                "tip": "主詞 We 是複數，搭配 are + writing。"
+        },
+        {
+                "id": "ow_3",
+                "topicTitle": "Unit 1: Fun in Class 第三人稱進行式",
+                "sentencePrompt": "What is May doing? → She _____ (is listening / are listening).",
+                "fullSentence": "What is May doing? She is listening.",
+                "zh": "May 正在做什麼？ - 她正在聽。",
+                "options": [
+                        "is listening",
+                        "are listening"
+                ],
+                "answer": "is listening",
+                "tip": "女生單數代名詞 She 搭配 is + listening。"
+        },
+        {
+                "id": "ow_4",
+                "topicTitle": "Unit 1: Fun in Class 第三人稱進行式",
+                "sentencePrompt": "What is your brother doing? → He _____ (is coloring / am coloring).",
+                "fullSentence": "What is your brother doing? He is coloring.",
+                "zh": "你的兄弟正在做什麼？ - 他正在著色。",
+                "options": [
+                        "is coloring",
+                        "am coloring"
+                ],
+                "answer": "is coloring",
+                "tip": "男生單數代名詞 He 搭配 is + coloring。"
+        },
+        {
+                "id": "ow_5",
+                "topicTitle": "Unit 1: Fun in Class 複數主詞進行式",
+                "sentencePrompt": "What are the boys doing? → They _____ (are gluing / is gluing).",
+                "fullSentence": "What are the boys doing? They are gluing.",
+                "zh": "男孩們正在做什麼？ - 他們正在黏貼。",
+                "options": [
+                        "are gluing",
+                        "is gluing"
+                ],
+                "answer": "are gluing",
+                "tip": "男孩們 the boys 是複數，代名詞用 They are gluing。"
+        },
+        {
+                "id": "ow_6",
+                "topicTitle": "Unit 1: Fun in Class 複數主詞進行式",
+                "sentencePrompt": "What are Jenny and Tom doing? → They _____ (are talking / is talking).",
+                "fullSentence": "What are Jenny and Tom doing? They are talking.",
+                "zh": "Jenny 和 Tom 正在做什麼？ - 他們正在說話。",
+                "options": [
+                        "are talking",
+                        "is talking"
+                ],
+                "answer": "are talking",
+                "tip": "Jenny 和 Tom 兩個人是複數，回答用 They are talking。"
+        },
+        {
+                "id": "ow_7",
+                "topicTitle": "Unit 1: Fun in Class be動詞縮寫練習",
+                "sentencePrompt": "I am drawing. = _____ (I'm / Im) drawing.",
+                "fullSentence": "I am drawing. = I'm drawing.",
+                "zh": "第一人稱 be 動詞縮寫：I am 縮寫為 I'm。",
+                "options": [
+                        "I'm",
+                        "Im"
+                ],
+                "answer": "I'm",
+                "tip": "縮寫別忘了加上撇號 (')：I am = I'm。"
+        },
+        {
+                "id": "ow_8",
+                "topicTitle": "Unit 1: Fun in Class be動詞縮寫練習",
+                "sentencePrompt": "She is listening. = _____ (She's / Shes) listening.",
+                "fullSentence": "She is listening. = She's listening.",
+                "zh": "第三人稱單數縮寫：She is 縮寫為 She's。",
+                "options": [
+                        "She's",
+                        "Shes"
+                ],
+                "answer": "She's",
+                "tip": "She is 的簡記縮寫是 She's。"
+        },
+        {
+                "id": "ow_9",
+                "topicTitle": "Unit 1: Fun in Class be動詞縮寫練習",
+                "sentencePrompt": "He is coloring. = _____ (He's / Hes) coloring.",
+                "fullSentence": "He is coloring. = He's coloring.",
+                "zh": "第三人稱單數縮寫：He is 縮寫為 He's。",
+                "options": [
+                        "He's",
+                        "Hes"
+                ],
+                "answer": "He's",
+                "tip": "He is 的簡記縮寫是 He's。"
+        },
+        {
+                "id": "ow_10",
+                "topicTitle": "Unit 1: Fun in Class 複數縮寫練習",
+                "sentencePrompt": "We are writing. = _____ (We're / Were) writing.",
+                "fullSentence": "We are writing. = We're writing.",
+                "zh": "第一人稱複數縮寫：We are 縮寫為 We're。",
+                "options": [
+                        "We're",
+                        "Were"
+                ],
+                "answer": "We're",
+                "tip": "We are 縮寫為 We're，若是 Were 意思不同喔！"
+        },
+        {
+                "id": "ow_11",
+                "topicTitle": "Unit 1: Fun in Class 複數縮寫練習",
+                "sentencePrompt": "They are gluing. = _____ (They're / Their) gluing.",
+                "fullSentence": "They are gluing. = They're gluing.",
+                "zh": "第三人稱複數縮寫：They are 縮寫為 They're。",
+                "options": [
+                        "They're",
+                        "Their"
+                ],
+                "answer": "They're",
+                "tip": "They are 縮寫是 They're，Their 是「他們的」所有格。"
+        },
+        {
+                "id": "ow_12",
+                "topicTitle": "Unit 2: Boots and Bathing Suits 天氣問答句型",
+                "sentencePrompt": "_____ (How's / What's) the weather? → It's sunny.",
+                "fullSentence": "How's the weather? It's sunny.",
+                "zh": "天氣如何？ - 天氣晴朗。",
+                "options": [
+                        "How's",
+                        "What's"
+                ],
+                "answer": "How's",
+                "tip": "詢問天氣要用『How's the weather?』或『What's the weather like?』。"
+        },
+        {
+                "id": "ow_13",
+                "topicTitle": "Unit 2: Boots and Bathing Suits 天氣問答句型",
+                "sentencePrompt": "How's the weather? → _____ (It's / They're) sunny.",
+                "fullSentence": "How's the weather? It's sunny.",
+                "zh": "天氣問答：天氣晴朗。",
+                "options": [
+                        "It's",
+                        "They're"
+                ],
+                "answer": "It's",
+                "tip": "回答天氣一律使用虛主詞 It's + 天氣形容詞。"
+        },
+        {
+                "id": "ow_14",
+                "topicTitle": "Unit 2: Boots and Bathing Suits 星期問答句型",
+                "sentencePrompt": "_____ (What day / What time) is it? → It's Sunday.",
+                "fullSentence": "What day is it? It's Sunday.",
+                "zh": "今天是星期幾？ - 今天是星期日。",
+                "options": [
+                        "What day",
+                        "What time"
+                ],
+                "answer": "What day",
+                "tip": "詢問『今天是星期幾』使用 What day is it?。"
+        },
+        {
+                "id": "ow_15",
+                "topicTitle": "Unit 2: Boots and Bathing Suits 複數物品問答",
+                "sentencePrompt": "What are they? → _____ (They're / It's) green shorts.",
+                "fullSentence": "What are they? They're green shorts.",
+                "zh": "那些是什麼？ - 那些是綠色短褲。",
+                "options": [
+                        "They're",
+                        "It's"
+                ],
+                "answer": "They're",
+                "tip": "短褲 shorts 是複數物品，問句用 are they，回答用 They're。"
+        },
+        {
+                "id": "pr_16",
+                "topicTitle": "發音例句 (Unit 1 (p.06) gl/sk)",
+                "sentencePrompt": "There is a _____ (globe / cloud) on my desk.",
+                "fullSentence": "There is a globe on my desk.",
+                "zh": "我的書桌上有一個地球儀。",
+                "options": [
+                        "globe",
+                        "cloud"
+                ],
+                "answer": "globe",
+                "tip": "桌上有一個地球儀 (globe - gl發音)。"
+        },
+        {
+                "id": "pr_17",
+                "topicTitle": "發音例句 (Unit 1 (p.06) cl)",
+                "sentencePrompt": "The _____ (clock / block) is on the wall.",
+                "fullSentence": "The clock is on the wall.",
+                "zh": "時鐘在牆上。",
+                "options": [
+                        "clock",
+                        "block"
+                ],
+                "answer": "clock",
+                "tip": "牆上有一個時鐘 (clock - cl發音)。"
+        },
+        {
+                "id": "pr_18",
+                "topicTitle": "發音例句 (Unit 1 (p.06) pl)",
+                "sentencePrompt": "I love the _____ (plant / plane) by my bed.",
+                "fullSentence": "I love the plant by my bed.",
+                "zh": "我喜歡床旁邊的那盆植物。",
+                "options": [
+                        "plant",
+                        "plane"
+                ],
+                "answer": "plant",
+                "tip": "我喜歡床邊的植物 (plant - pl發音)。"
+        },
+        {
+                "id": "pr_19",
+                "topicTitle": "發音例句 (Unit 1 (p.08) pr)",
+                "sentencePrompt": "The _____ (prince / prize) is mad.",
+                "fullSentence": "The prince is mad.",
+                "zh": "王子生氣了。",
+                "options": [
+                        "prince",
+                        "prize"
+                ],
+                "answer": "prince",
+                "tip": "王子 (prince - pr發音) 生氣了。"
+        },
+        {
+                "id": "pr_20",
+                "topicTitle": "發音例句 (Unit 1 (p.08) cr)",
+                "sentencePrompt": "Look at his dirty _____ (crown / clown).",
+                "fullSentence": "Look at his dirty crown.",
+                "zh": "看他那弄髒的皇冠。",
+                "options": [
+                        "crown",
+                        "clown"
+                ],
+                "answer": "crown",
+                "tip": "看他弄髒的皇冠 (crown - cr發音)。"
+        },
+        {
+                "id": "pr_21",
+                "topicTitle": "發音例句 (Unit 1 (p.08) br)",
+                "sentencePrompt": "He needs a _____ (brush / bread) now.",
+                "fullSentence": "He needs a brush now.",
+                "zh": "他現在需要一把刷子。",
+                "options": [
+                        "brush",
+                        "bread"
+                ],
+                "answer": "brush",
+                "tip": "他現在需要一把刷子 (brush - br發音)。"
+        },
+        {
+                "id": "pr_22",
+                "topicTitle": "發音例句 (Unit 1 (p.12) dr)",
+                "sentencePrompt": "Her _____ (dream / drum) is to be a doctor.",
+                "fullSentence": "Her dream is to be a doctor.",
+                "zh": "她的夢想是成為一名醫生。",
+                "options": [
+                        "dream",
+                        "drum"
+                ],
+                "answer": "dream",
+                "tip": "她的夢想 (dream - dr發音) 是當醫生。"
+        },
+        {
+                "id": "pr_23",
+                "topicTitle": "發音例句 (Unit 1 (p.12) tr)",
+                "sentencePrompt": "Can you take out the _____ (trash / train)?",
+                "fullSentence": "Can you take out the trash?",
+                "zh": "你可以去倒垃圾嗎？",
+                "options": [
+                        "trash",
+                        "train"
+                ],
+                "answer": "trash",
+                "tip": "倒垃圾 (trash - tr發音)。"
+        },
+        {
+                "id": "pr_24",
+                "topicTitle": "發音例句 (Unit 1 (p.12) fl/sk)",
+                "sentencePrompt": "The kites _____ (fly / flag) in the sky.",
+                "fullSentence": "The kites fly in the sky.",
+                "zh": "風箏在天空中飛翔。",
+                "options": [
+                        "fly",
+                        "flag"
+                ],
+                "answer": "fly",
+                "tip": "風箏在天空中飛翔 (fly - fl發音)。"
+        },
+        {
+                "id": "pr_25",
+                "topicTitle": "發音例句 (Unit 1 (p.13) bl)",
+                "sentencePrompt": "Please help me find my black _____ (blouse / blanket).",
+                "fullSentence": "Please help me find my black blouse.",
+                "zh": "請幫我找找我的黑色女襯衫。",
+                "options": [
+                        "blouse",
+                        "blanket"
+                ],
+                "answer": "blouse",
+                "tip": "黑色女襯衫 (blouse - bl發音)。"
+        },
+        {
+                "id": "pr_26",
+                "topicTitle": "發音例句 (Unit 1 (p.13) gl)",
+                "sentencePrompt": "It's not under the _____ (glass / glad) table.",
+                "fullSentence": "It's not under the glass table.",
+                "zh": "它不在玻璃桌下面。",
+                "options": [
+                        "glass",
+                        "glad"
+                ],
+                "answer": "glass",
+                "tip": "玻璃桌 (glass table - gl發音)。"
+        },
+        {
+                "id": "pr_27",
+                "topicTitle": "發音例句 (Unit 1 (p.13) gr/tr)",
+                "sentencePrompt": "They sit on the _____ (grass / grapes) under the tree.",
+                "fullSentence": "They sit on the grass under the tree.",
+                "zh": "他們坐在樹下的草地上。",
+                "options": [
+                        "grass",
+                        "grapes"
+                ],
+                "answer": "grass",
+                "tip": "坐在草地上 (grass - gr發音)。"
+        },
+        {
+                "id": "pr_28",
+                "topicTitle": "發音例句 (Unit 1 (p.13) br/gr)",
+                "sentencePrompt": "They enjoy the bread, cheese, and _____ (grapes / grass).",
+                "fullSentence": "They enjoy the bread, cheese, and grapes.",
+                "zh": "他們享用麵包、起司和葡萄。",
+                "options": [
+                        "grapes",
+                        "grass"
+                ],
+                "answer": "grapes",
+                "tip": "享用葡萄 (grapes - gr發音)。"
+        },
+        {
+                "id": "pr_29",
+                "topicTitle": "發音例句 (Unit 2 (p.16) sw/gl)",
+                "sentencePrompt": "Put on your _____ (sweater / swing) and gloves.",
+                "fullSentence": "Put on your sweater and gloves.",
+                "zh": "穿上你的毛衣並戴上手套。",
+                "options": [
+                        "sweater",
+                        "swing"
+                ],
+                "answer": "sweater",
+                "tip": "穿上毛衣 (sweater - sw發音)。"
+        },
+        {
+                "id": "pr_30",
+                "topicTitle": "發音例句 (Unit 2 (p.16) sn)",
+                "sentencePrompt": "Let's play in the _____ (snow / snail).",
+                "fullSentence": "Let's play in the snow.",
+                "zh": "我們去雪地裡玩吧。",
+                "options": [
+                        "snow",
+                        "snail"
+                ],
+                "answer": "snow",
+                "tip": "在雪中玩耍 (snow - sn發音)。"
+        },
+        {
+                "id": "pr_31",
+                "topicTitle": "發音例句 (Unit 2 (p.16) sl)",
+                "sentencePrompt": "Riding on a _____ (sled / slide) is so fun.",
+                "fullSentence": "Riding on a sled is so fun.",
+                "zh": "坐雪橇真好玩。",
+                "options": [
+                        "sled",
+                        "slide"
+                ],
+                "answer": "sled",
+                "tip": "坐雪橇真好玩 (sled - sl發音)。"
+        },
+        {
+                "id": "pr_32",
+                "topicTitle": "發音例句 (Unit 2 (p.20) sp)",
+                "sentencePrompt": "Look at that big black _____ (spider / spoon)!",
+                "fullSentence": "Look at that big black spider!",
+                "zh": "看那隻大黑蜘蛛！",
+                "options": [
+                        "spider",
+                        "spoon"
+                ],
+                "answer": "spider",
+                "tip": "大黑蜘蛛 (spider - sp發音)。"
+        },
+        {
+                "id": "pr_33",
+                "topicTitle": "發音例句 (Unit 2 (p.20) st)",
+                "sentencePrompt": "I draw a _____ (star / steak) on the card.",
+                "fullSentence": "I draw a star on the card.",
+                "zh": "我在卡片上畫了一顆星星。",
+                "options": [
+                        "star",
+                        "steak"
+                ],
+                "answer": "star",
+                "tip": "在卡片上畫一顆星星 (star - st發音)。"
+        },
+        {
+                "id": "pr_34",
+                "topicTitle": "發音例句 (Unit 2 (p.20) 字尾st)",
+                "sentencePrompt": "We will have a _____ (test / toast) next week.",
+                "fullSentence": "We will have a test next week.",
+                "zh": "我們下週會有測驗。",
+                "options": [
+                        "test",
+                        "toast"
+                ],
+                "answer": "test",
+                "tip": "下週有一場測驗/考試 (test - st字尾發音)。"
+        },
+        {
+                "id": "pr_35",
+                "topicTitle": "發音例句 (Unit 2 (p.22) sl/sm)",
+                "sentencePrompt": "Slow down! Do you _____ (smell / smile) something burning?",
+                "fullSentence": "Slow down! Do you smell something burning?",
+                "zh": "慢一點！你有聞到燒焦味嗎？",
+                "options": [
+                        "smell",
+                        "smile"
+                ],
+                "answer": "smell",
+                "tip": "聞到燒焦味 (smell - sm發音)。"
+        },
+        {
+                "id": "pr_36",
+                "topicTitle": "發音例句 (Unit 2 (p.22) st/sm/sk)",
+                "sentencePrompt": "Stop walking! Is that black _____ (smoke / snake) in the sky?",
+                "fullSentence": "Stop walking! Is that black smoke in the sky?",
+                "zh": "停下腳步！天空中那是黑煙嗎？",
+                "options": [
+                        "smoke",
+                        "snake"
+                ],
+                "answer": "smoke",
+                "tip": "天空中的黑煙 (smoke - sm發音)。"
+        },
+        {
+                "id": "pr_37",
+                "topicTitle": "發音例句 (Unit 2 (p.22) st)",
+                "sentencePrompt": "We'd better _____ (stand / start) back and stay away.",
+                "fullSentence": "We'd better stand back and stay away.",
+                "zh": "我們最好往後站並保持距離。",
+                "options": [
+                        "stand",
+                        "start"
+                ],
+                "answer": "stand",
+                "tip": "往後站退後 (stand back - st發音)。"
+        },
+        {
+                "id": "g1",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "It _____ (is / are) a pen.",
+                "fullSentence": "It is a pen.",
+                "zh": "這是一支鋼筆。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "is",
+                "tip": "單數主詞 It 搭配 Be動詞 is。"
+        },
+        {
+                "id": "g2",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "It is _____ (a / an) apple.",
+                "fullSentence": "It is an apple.",
+                "zh": "這是一個蘋果。",
+                "options": [
+                        "a",
+                        "an"
+                ],
+                "answer": "an",
+                "tip": "apple 開頭發音是母音，前面要用 an 喔！"
+        },
+        {
+                "id": "g3",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "This _____ (is / are) a cat.",
+                "fullSentence": "This is a cat.",
+                "zh": "這是一隻貓。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "is",
+                "tip": "近距離單數指示代名詞 This 搭配 is。"
+        },
+        {
+                "id": "g4",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "This is _____ (a / an) orange.",
+                "fullSentence": "This is an orange.",
+                "zh": "這是一個柳橙。",
+                "options": [
+                        "a",
+                        "an"
+                ],
+                "answer": "an",
+                "tip": "orange 為母音開頭的名詞，要使用 an。"
+        },
+        {
+                "id": "g5",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "That _____ (is / are) a dog.",
+                "fullSentence": "That is a dog.",
+                "zh": "那是一隻狗。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "is",
+                "tip": "遠距離單數指示代名詞 That 搭配 is。"
+        },
+        {
+                "id": "g6",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "That is _____ (a / an) elephant.",
+                "fullSentence": "That is an elephant.",
+                "zh": "那是一頭大象。",
+                "options": [
+                        "a",
+                        "an"
+                ],
+                "answer": "an",
+                "tip": "elephant 字首為母音，前面加 an。"
+        },
+        {
+                "id": "g7",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "It _____ (is / are) a red book.",
+                "fullSentence": "It is a red book.",
+                "zh": "這是一本紅色的書。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "is",
+                "tip": "單數物品用 is。"
+        },
+        {
+                "id": "g8",
+                "topicTitle": "Be動詞與單複數 (Is + a/an)",
+                "sentencePrompt": "It is _____ (a / an) egg.",
+                "fullSentence": "It is an egg.",
+                "zh": "這是一個蛋。",
+                "options": [
+                        "a",
+                        "an"
+                ],
+                "answer": "an",
+                "tip": "egg 為母音發音開頭，使用 an。"
+        },
+        {
+                "id": "g16",
+                "topicTitle": "Be動詞與單複數 (Are + 複數名詞)",
+                "sentencePrompt": "They _____ (is / are) pens.",
+                "fullSentence": "They are pens.",
+                "zh": "它們是鋼筆。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "are",
+                "tip": "They 是複數，動詞要搭配 are！"
+        },
+        {
+                "id": "g17",
+                "topicTitle": "Be動詞與單複數 (Are + 複數名詞)",
+                "sentencePrompt": "They are _____ (apple / apples).",
+                "fullSentence": "They are apples.",
+                "zh": "它們是蘋果。",
+                "options": [
+                        "apple",
+                        "apples"
+                ],
+                "answer": "apples",
+                "tip": "複數句型名詞字尾要記得加上 -s！"
+        },
+        {
+                "id": "g31",
+                "topicTitle": "代名詞與所有格 (I / My)",
+                "sentencePrompt": "_____ (I / My) am a student.",
+                "fullSentence": "I am a student.",
+                "zh": "我是一個學生。",
+                "options": [
+                        "I",
+                        "My"
+                ],
+                "answer": "I",
+                "tip": "主格『我』用 I，且搭配 am。"
+        },
+        {
+                "id": "g32",
+                "topicTitle": "代名詞與所有格 (I / My)",
+                "sentencePrompt": "_____ (I / My) bag is yellow.",
+                "fullSentence": "My bag is yellow.",
+                "zh": "我的書包是黃色的。",
+                "options": [
+                        "I",
+                        "My"
+                ],
+                "answer": "My",
+                "tip": "修飾名詞 bag（書包）要用所有格『我的』My。"
+        },
+        {
+                "id": "g39",
+                "topicTitle": "代名詞與所有格 (He / His)",
+                "sentencePrompt": "_____ (He / His) is a doctor.",
+                "fullSentence": "He is a doctor.",
+                "zh": "他是一位醫生。",
+                "options": [
+                        "He",
+                        "His"
+                ],
+                "answer": "He",
+                "tip": "主詞『他』要用 He。"
+        },
+        {
+                "id": "g40",
+                "topicTitle": "代名詞與所有格 (He / His)",
+                "sentencePrompt": "_____ (He / His) name is Danny.",
+                "fullSentence": "His name is Danny.",
+                "zh": "他的名字是 Danny。",
+                "options": [
+                        "He",
+                        "His"
+                ],
+                "answer": "His",
+                "tip": "『他的』名字，使用所有格 His。"
+        },
+        {
+                "id": "g61",
+                "topicTitle": "特殊疑問句 (What)",
+                "sentencePrompt": "_____ (What / Who) is this? → It is a yellow kite.",
+                "fullSentence": "What is this? It is a yellow kite.",
+                "zh": "這是什麼？→ 這是一隻黃色的風箏。",
+                "options": [
+                        "What",
+                        "Who"
+                ],
+                "answer": "What",
+                "tip": "詢問物品是什麼，疑問詞要用 What。"
+        },
+        {
+                "id": "g69",
+                "topicTitle": "特殊疑問句 (Who)",
+                "sentencePrompt": "_____ (Who / What) is she? → She is my mother.",
+                "fullSentence": "Who is she? She is my mother.",
+                "zh": "她是誰？→ 她是我媽媽。",
+                "options": [
+                        "Who",
+                        "What"
+                ],
+                "answer": "Who",
+                "tip": "詢問『人』是誰，疑問詞要用 Who。"
+        },
+        {
+                "id": "g77",
+                "topicTitle": "特殊疑問句 (How Many)",
+                "sentencePrompt": "How many books are there? → There _____ (is / are) three books.",
+                "fullSentence": "How many books are there? There are three books.",
+                "zh": "這裡有多少本書？→ 這裡有三本書。",
+                "options": [
+                        "is",
+                        "are"
+                ],
+                "answer": "are",
+                "tip": "three books 為複數，用 There are。"
+        }
+];
 
         let rawData = [...DEFAULT_WORDS];
         let currentGameMode = '';
